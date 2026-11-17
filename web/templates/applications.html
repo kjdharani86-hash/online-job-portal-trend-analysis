@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}Application Pipeline | Online Job Portal{% endblock %}
+
+{% block content %}
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
+    <div>
+        <h3 class="fw-bold mb-1"><i class="fa-solid fa-list-check text-primary me-2"></i> Recruitment Pipeline Tracking</h3>
+        <p class="text-muted small mb-0">Monitor student application states, interview stages, and evaluator decisions.</p>
+    </div>
+    <!-- Filter by status -->
+    <div class="d-flex align-items-center gap-2 mt-2 mt-sm-0">
+        <span class="small text-muted fw-semibold">Stage:</span>
+        <div class="btn-group" role="group">
+            <a href="{{ url_for('applications') }}" class="btn btn-sm {% if not current_status %}btn-primary{% else %}btn-outline-secondary{% endif %}">ALL</a>
+            <a href="{{ url_for('applications', status='APPLIED') }}" class="btn btn-sm {% if current_status == 'APPLIED' %}btn-primary{% else %}btn-outline-secondary{% endif %}">APPLIED</a>
+            <a href="{{ url_for('applications', status='SHORTLISTED') }}" class="btn btn-sm {% if current_status == 'SHORTLISTED' %}btn-primary{% else %}btn-outline-secondary{% endif %}">SHORTLISTED</a>
+            <a href="{{ url_for('applications', status='SELECTED') }}" class="btn btn-sm {% if current_status == 'SELECTED' %}btn-primary{% else %}btn-outline-secondary{% endif %}">SELECTED</a>
+            <a href="{{ url_for('applications', status='REJECTED') }}" class="btn btn-sm {% if current_status == 'REJECTED' %}btn-primary{% else %}btn-outline-secondary{% endif %}">REJECTED</a>
+        </div>
+    </div>
+</div>
+
+<div class="card border-0 shadow-sm rounded-3">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th class="ps-3">App #</th>
+                        <th>Student Details</th>
+                        <th>Applied Vacancy</th>
+                        <th>Employer</th>
+                        <th>Status</th>
+                        <th>Interview Round</th>
+                        <th>Remarks / Evaluation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for a in applications %}
+                    <tr>
+                        <td class="ps-3 fw-bold text-muted font-monospace">#{{ a.application_id }}</td>
+                        <td>
+                            <div class="fw-semibold text-dark">{{ a.student_name }}</div>
+                            <small class="text-muted font-monospace">{{ a.student_id }}</small>
+                            <span class="badge bg-light text-secondary border ms-1" style="font-size: 0.7rem;">{{ a.department }} ({{ a.cgpa }})</span>
+                        </td>
+                        <td>
+                            <span class="fw-medium text-dark">{{ a.job_title }}</span>
+                        </td>
+                        <td>
+                            <span class="fw-semibold text-primary">{{ a.company_name }}</span>
+                        </td>
+                        <td>
+                            <span class="badge badge-status status-{{ a.status }}">
+                                {% if a.status == 'SELECTED' %}<i class="fa-solid fa-circle-check me-1"></i>{% elif a.status == 'SHORTLISTED' %}<i class="fa-solid fa-clock me-1"></i>{% elif a.status == 'REJECTED' %}<i class="fa-solid fa-circle-xmark me-1"></i>{% else %}<i class="fa-solid fa-envelope me-1"></i>{% endif %}
+                                {{ a.status }}
+                            </span>
+                        </td>
+                        <td>
+                            <span class="badge bg-light text-dark border">
+                                Round {{ a.interview_round }}
+                            </span>
+                        </td>
+                        <td class="small text-muted" style="max-width: 250px;">
+                            {{ a.remarks }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

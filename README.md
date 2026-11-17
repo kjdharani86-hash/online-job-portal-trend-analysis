@@ -134,13 +134,20 @@ Project1/
 
 ### Method 1: Using 1-Click Windows Batch Scripts (Quickest)
 
-1. **To Run the Java Application (Interactive Menu & Demo)**:
+1. **To Launch the Interactive Web Portal Dashboard**:
+   Double-click `run_website.bat` or run:
+   ```cmd
+   run_website.bat
+   ```
+   *(Opens your web browser automatically at `http://127.0.0.1:5000`)*
+
+2. **To Run the Java Application (Interactive Menu & Demo)**:
    Double-click `build_and_run.bat` or run:
    ```cmd
    build_and_run.bat
    ```
 
-2. **To Run the Python Data Science Analytics & Generate Charts**:
+3. **To Run the Python Data Science Analytics & Generate Charts**:
    Double-click `run_python_analysis.bat` or run:
    ```cmd
    run_python_analysis.bat
@@ -171,7 +178,13 @@ java -cp "bin;lib/*" com.jobportal.Main
 java -cp "bin;lib/*" com.jobportal.Main --auto-demo
 ```
 
-#### 5. Run Python Data Science Pipeline & Visualizations
+#### 5. Run Web Application Portal
+```bash
+python web/app.py
+```
+*Access in browser at `http://127.0.0.1:5000` to interact with job vacancies, students, applications, and visual analytics.*
+
+#### 6. Run Python Data Science Pipeline & Visualizations
 ```bash
 # Step A: Data Retrieval
 python python/db_retrieval.py

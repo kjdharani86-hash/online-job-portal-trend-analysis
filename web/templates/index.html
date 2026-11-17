@@ -1,0 +1,177 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard | Online Job Portal & Employment Trend Analysis{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="p-4 p-md-5 mb-4 rounded-3 text-white" style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.4);">
+    <div class="row align-items-center">
+        <div class="col-lg-8">
+            <span class="badge bg-warning text-dark px-3 py-1 mb-2 fw-semibold">Academic Year 2026-27 (ODD)</span>
+            <h1 class="display-6 fw-bold mb-2">Online Job Portal & Employment Trend Analysis System</h1>
+            <p class="lead mb-4 text-white-50 fs-6">
+                Integrated placement automation portal for student profiles, corporate vacancy publishing, eligibility screening, duplicate prevention, and empirical employment trend analytics across departments.
+            </p>
+            <div class="d-flex flex-wrap gap-2">
+                <a href="{{ url_for('vacancies') }}" class="btn btn-light btn-lg px-4 shadow-sm fw-semibold text-primary">
+                    <i class="fa-solid fa-briefcase me-1"></i> Browse Open Vacancies
+                </a>
+                <a href="{{ url_for('analytics') }}" class="btn btn-outline-light btn-lg px-4 fw-semibold">
+                    <i class="fa-solid fa-chart-line me-1"></i> View Trend Analytics
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-4 d-none d-lg-block text-center">
+            <i class="fa-solid fa-building-columns text-white-50" style="font-size: 8rem;"></i>
+        </div>
+    </div>
+</div>
+
+<!-- Key Performance Indicators (Metrics) -->
+<div class="row g-3 mb-4">
+    <div class="col-sm-6 col-lg-3">
+        <div class="card stat-card p-3 bg-white h-100">
+            <div class="d-flex align-items-center">
+                <div class="p-3 rounded-3 bg-primary-subtle text-primary me-3">
+                    <i class="fa-solid fa-user-graduate fs-3"></i>
+                </div>
+                <div>
+                    <h6 class="text-muted text-uppercase mb-1" style="font-size: 0.75rem; letter-spacing: 0.5px;">Registered Students</h6>
+                    <h3 class="fw-bold mb-0 text-slate-800">{{ total_students }}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-lg-3">
+        <div class="card stat-card p-3 bg-white h-100">
+            <div class="d-flex align-items-center">
+                <div class="p-3 rounded-3 bg-success-subtle text-success me-3">
+                    <i class="fa-solid fa-building me-1 fs-3"></i>
+                </div>
+                <div>
+                    <h6 class="text-muted text-uppercase mb-1" style="font-size: 0.75rem; letter-spacing: 0.5px;">Recruiting Partners</h6>
+                    <h3 class="fw-bold mb-0 text-slate-800">{{ total_companies }}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-lg-3">
+        <div class="card stat-card p-3 bg-white h-100">
+            <div class="d-flex align-items-center">
+                <div class="p-3 rounded-3 bg-info-subtle text-info me-3">
+                    <i class="fa-solid fa-file-invoice-dollar fs-3"></i>
+                </div>
+                <div>
+                    <h6 class="text-muted text-uppercase mb-1" style="font-size: 0.75rem; letter-spacing: 0.5px;">Active Vacancies</h6>
+                    <h3 class="fw-bold mb-0 text-slate-800">{{ total_vacancies }}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-lg-3">
+        <div class="card stat-card p-3 bg-white h-100">
+            <div class="d-flex align-items-center">
+                <div class="p-3 rounded-3 bg-warning-subtle text-warning me-3">
+                    <i class="fa-solid fa-trophy fs-3"></i>
+                </div>
+                <div>
+                    <h6 class="text-muted text-uppercase mb-1" style="font-size: 0.75rem; letter-spacing: 0.5px;">Offers Extended</h6>
+                    <h3 class="fw-bold mb-0 text-slate-800">{{ total_selected }}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4">
+    <!-- Top Open Vacancies -->
+    <div class="col-lg-8">
+        <div class="card border-0 shadow-sm rounded-3">
+            <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center border-bottom">
+                <h5 class="fw-bold mb-0">
+                    <i class="fa-solid fa-star text-warning me-2"></i> Featured Job Vacancies
+                </h5>
+                <a href="{{ url_for('vacancies') }}" class="btn btn-sm btn-outline-primary">View All</a>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th class="ps-3">Company</th>
+                                <th>Designation</th>
+                                <th>Min CGPA</th>
+                                <th>Salary Package</th>
+                                <th class="text-end pe-3">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for v in recent_vacancies %}
+                            <tr>
+                                <td class="ps-3">
+                                    <div class="fw-semibold text-dark">{{ v.company_name }}</div>
+                                    <small class="text-muted">{{ v.industry }}</small>
+                                </td>
+                                <td>
+                                    <span class="fw-medium">{{ v.job_title }}</span><br>
+                                    <small class="badge bg-light text-secondary border">{{ v.eligible_departments }}</small>
+                                </td>
+                                <td>
+                                    <span class="badge bg-secondary-subtle text-secondary">{{ v.min_cgpa }} CGPA</span>
+                                </td>
+                                <td>
+                                    <span class="text-success fw-bold">₹{{ "%.1f"|format(v.salary_min / 100000.0) }} - ₹{{ "%.1f"|format(v.salary_max / 100000.0) }} LPA</span>
+                                </td>
+                                <td class="text-end pe-3">
+                                    <a href="{{ url_for('vacancies') }}" class="btn btn-sm btn-primary">Apply</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Department Snapshot -->
+    <div class="col-lg-4">
+        <div class="card border-0 shadow-sm rounded-3 mb-4">
+            <div class="card-header bg-white py-3 border-bottom">
+                <h5 class="fw-bold mb-0">
+                    <i class="fa-solid fa-chart-column text-primary me-2"></i> Department Placements
+                </h5>
+            </div>
+            <div class="card-body">
+                {% for d in dept_stats %}
+                {% set pct = (d.placed_students * 100.0 / d.total_students)|round(1) if d.total_students > 0 else 0 %}
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between mb-1">
+                        <span class="fw-semibold">{{ d.department }} ({{ d.placed_students }}/{{ d.total_students }})</span>
+                        <span class="fw-bold text-primary">{{ pct }}%</span>
+                    </div>
+                    <div class="progress" style="height: 8px;">
+                        <div class="progress-bar {% if pct >= 85 %}bg-success{% elif pct >= 75 %}bg-primary{% else %}bg-warning{% endif %}" 
+                             role="progressbar" style="width: {{ pct }}%;"></div>
+                    </div>
+                </div>
+                {% endfor %}
+                <a href="{{ url_for('analytics') }}" class="btn btn-outline-secondary btn-sm w-100 mt-2">
+                    <i class="fa-solid fa-arrow-up-right-from-square me-1"></i> Full Visual Report
+                </a>
+            </div>
+        </div>
+
+        <!-- System Information Card -->
+        <div class="card border-0 shadow-sm rounded-3 bg-light p-3">
+            <h6 class="fw-bold text-dark mb-2"><i class="fa-solid fa-info-circle text-info me-1"></i> Project Information</h6>
+            <ul class="list-unstyled mb-0 small text-muted">
+                <li class="mb-1"><strong>Scenario:</strong> 22 - Online Job Portal & Trends</li>
+                <li class="mb-1"><strong>Student:</strong> Dharaneesh.K (732925ITR022)</li>
+                <li class="mb-1"><strong>Class:</strong> 25IT3A (IT Dept)</li>
+                <li class="mb-1"><strong>Stack:</strong> Java 17, SQLite DBMS, Python 3, Flask</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}Students Directory | Online Job Portal{% endblock %}
+
+{% block content %}
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
+    <div>
+        <h3 class="fw-bold mb-1"><i class="fa-solid fa-users text-primary me-2"></i> Registered Students Directory</h3>
+        <p class="text-muted small mb-0">Academic qualifications, CGPA records, and key competencies across departments.</p>
+    </div>
+    <!-- Search Form -->
+    <form class="d-flex gap-2 mt-2 mt-sm-0" method="GET" action="{{ url_for('students') }}">
+        <div class="input-group">
+            <span class="input-group-text bg-white border-end-0"><i class="fa-solid fa-search text-muted"></i></span>
+            <input type="text" class="form-control border-start-0" name="q" value="{{ search_query }}" placeholder="Search by name, ID, skill...">
+            <button class="btn btn-primary" type="submit">Search</button>
+            {% if search_query %}
+            <a href="{{ url_for('students') }}" class="btn btn-outline-secondary">Clear</a>
+            {% endif %}
+        </div>
+    </form>
+</div>
+
+<div class="card border-0 shadow-sm rounded-3">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th class="ps-3">Register No</th>
+                        <th>Student Name</th>
+                        <th>Department</th>
+                        <th>Degree</th>
+                        <th>CGPA</th>
+                        <th>Verified Competencies</th>
+                        <th>Contact Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for s in students %}
+                    <tr>
+                        <td class="ps-3 fw-semibold text-primary font-monospace">{{ s.student_id }}</td>
+                        <td>
+                            <span class="fw-bold text-dark">{{ s.name }}</span>
+                        </td>
+                        <td>
+                            <span class="badge {% if s.department == 'IT' %}bg-primary{% elif s.department == 'CSE' %}bg-info text-dark{% elif s.department == 'ECE' %}bg-success{% elif s.department == 'EEE' %}bg-warning text-dark{% else %}bg-secondary{% endif %}">
+                                {{ s.department }}
+                            </span>
+                        </td>
+                        <td class="small text-muted">{{ s.qualification }}</td>
+                        <td>
+                            <span class="badge bg-light text-dark border fw-bold px-2 py-1">
+                                <i class="fa-solid fa-star text-warning me-1"></i> {{ "%.2f"|format(s.cgpa) }}
+                            </span>
+                        </td>
+                        <td>
+                            <div class="d-flex flex-wrap gap-1" style="max-width: 320px;">
+                                {% for skill in s.skills.split(',') %}
+                                <span class="badge bg-light text-secondary border" style="font-size: 0.75rem;">{{ skill.strip() }}</span>
+                                {% endfor %}
+                            </div>
+                        </td>
+                        <td class="small">
+                            <a href="mailto:{{ s.email }}" class="text-decoration-none text-muted">
+                                <i class="fa-regular fa-envelope me-1"></i> {{ s.email }}
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
