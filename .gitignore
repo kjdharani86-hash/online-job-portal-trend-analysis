@@ -1,0 +1,13 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Java compilation artifacts
+bin/
+*.class
+
+# Temporary or IDE files
+.idea/
+.vscode/
+*.iml
