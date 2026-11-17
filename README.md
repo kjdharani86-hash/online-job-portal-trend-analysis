@@ -185,17 +185,33 @@ python python/visualizations.py
 
 ---
 
-## 📊 Summary of Generated Visualizations
+## 📊 Generated Visualizations & Employment Trend Analytics
 
-All generated visualization images are saved in `output/visualizations/`:
-1. **01_application_status_distribution.png**: Donut chart displaying the candidate recruitment funnel (Selected: 49.2%, Shortlisted: 33.3%, Applied: 9.5%, Rejected: 7.9%).
-2. **02_applications_per_department.png**: Grouped bar chart comparing total applicants against selected offers across IT, CSE, ECE, EEE, and MECH.
-3. **03_salary_distribution_by_job_role.png**: Horizontal box plot detailing median salary packages, interquartile ranges, and top-tier compensation brackets.
-4. **04_top_recruiting_companies.png**: Hiring volume by corporate partner, highlighting top recruiters (TCS, Zoho, Infosys, AWS, Bosch).
-5. **05_cgpa_vs_selection_correlation.png**: Histogram comparing CGPA distributions of selected candidates (Mean: 8.08) vs non-selected candidates (Mean: 7.56).
-6. **06_skills_demand_frequency.png**: Horizontal ranking of the top 10 demanded technical competencies (Java, Python, SQL, Cloud, React).
-7. **07_placement_rate_by_department.png**: Department-wise placement success rates compared against the 80% institutional benchmark.
-8. **08_correlation_heatmap.png**: Multivariate Pearson correlation matrix revealing the direct mathematical dependency between academic CGPA, salary tier, and interview round success.
+The system generates 8 publication-grade analytical charts (300 DPI) located in `output/visualizations/` and embedded directly below:
+
+### 1. Application Status Funnel & Department Performance
+| Application Status Distribution (Donut Chart) | Applications vs Selections by Department |
+| :---: | :---: |
+| ![Application Status Distribution](output/visualizations/01_application_status_distribution.png) | ![Department Applications vs Selections](output/visualizations/02_applications_per_department.png) |
+| *Recruitment pipeline funnel showing Selected (49.2%), Shortlisted (33.3%), Applied (9.5%), and Rejected (7.9%).* | *Grouped bar chart comparing total applicants vs successful selections across IT, CSE, ECE, EEE, and MECH.* |
+
+### 2. Salary Analysis & Corporate Recruiting Volume
+| Salary Distribution by Job Role (Box Plot & IQR) | Hiring Volume by Corporate Employer |
+| :---: | :---: |
+| ![Salary Distribution by Job Role](output/visualizations/03_salary_distribution_by_job_role.png) | ![Top Recruiting Companies](output/visualizations/04_top_recruiting_companies.png) |
+| *Horizontal box plot displaying median CTC, interquartile ranges, and top compensation brackets.* | *Total applicants vs final offers extended across major employers (Zoho, TCS, Amazon, Infosys, Bosch, CTS).* |
+
+### 3. Academic Impact & Industry Skills Demand
+| Academic CGPA vs Selection Distribution (KDE & Hist) | Top 10 In-Demand Technical Skills |
+| :---: | :---: |
+| ![CGPA vs Selection Distribution](output/visualizations/05_cgpa_vs_selection_correlation.png) | ![Skills Demand Frequency](output/visualizations/06_skills_demand_frequency.png) |
+| *Histogram revealing selected candidates have a mean CGPA of 8.08 vs 7.56 for non-selected applicants.* | *Market demand frequency ranking (Java, Python, SQL, Cloud Fundamentals, and Web Frameworks lead).* |
+
+### 4. Department Placement Benchmark & Correlation Matrix
+| Department Placement Success Rate (%) | Multivariate Correlation Heatmap |
+| :---: | :---: |
+| ![Department Placement Rate](output/visualizations/07_placement_rate_by_department.png) | ![Correlation Heatmap](output/visualizations/08_correlation_heatmap.png) |
+| *Department-wise placement success percentages benchmarked against the institutional 80% target.* | *Pearson correlation matrix illustrating mathematical relationships between CGPA, Salary, and Offers.* |
 
 ---
 
