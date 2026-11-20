@@ -137,7 +137,7 @@ Project1/
 1. **To Launch the Interactive Web Portal Dashboard**:
    Double-click `run_website.bat` or run:
    ```cmd
-   run_website.bat
+   .\run_website.bat
    ```
    *(Opens your web browser automatically at `http://127.0.0.1:5000`)*
 
