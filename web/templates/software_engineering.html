@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Software Engineering (25ITT33) - 5 Units Specification | Online Job Portal{% endblock %}
+{% block title %}Software Engineering (25ITT33) - 5 Units & Complete Diagrams Suite | Online Job Portal{% endblock %}
 
 {% block extra_head %}
 <!-- Mermaid.js for Dynamic UML & Process Rendering -->
@@ -11,7 +11,8 @@
         theme: 'default',
         securityLevel: 'loose',
         flowchart: { useMaxWidth: true, htmlLabels: true },
-        gantt: { useMaxWidth: true }
+        gantt: { useMaxWidth: true },
+        stateDiagram: { useMaxWidth: true }
     });
 </script>
 <style>
@@ -72,10 +73,11 @@
         border-radius: 0 8px 8px 0;
         font-family: 'Courier New', Courier, monospace;
     }
-    .waterfall-step {
-        border-left: 3px solid #0d6efd;
-        padding-left: 1rem;
-        margin-bottom: 1.5rem;
+    .diagram-badge {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding: 0.35rem 0.6rem;
     }
 </style>
 {% endblock %}
@@ -94,16 +96,16 @@
                         Software Engineering
                     </span>
                 </div>
-                <h2 class="fw-bold text-dark mb-1">Five Units Software Engineering Specification</h2>
+                <h2 class="fw-bold text-dark mb-1">Five Units Specification & Complete Engineering Diagrams Suite</h2>
                 <p class="text-muted mb-0">
-                    Comprehensive curriculum implementation covering <strong>Unit 1: Software Process (Classical Waterfall Model)</strong>, 
-                    <strong>Unit 2: SRS</strong>, <strong>Unit 3: Design & UML</strong>, <strong>Unit 4: Testing & QA</strong>, and 
-                    <strong>Unit 5: Project Management & Estimation</strong> for <em>Scenario 22: Online Job Portal & Employment Trend Analysis System</em>.
+                    Interactive engineering models covering <strong>Waterfall Lifecycle</strong>, <strong>DFDs (Level 0 & 1)</strong>, 
+                    <strong>UML Diagrams (Use Case, Class, Sequence, Activity, Statechart, Component, Deployment)</strong>, 
+                    <strong>Control Flow Graph (CFG)</strong>, and <strong>Gantt Schedule</strong> for <em>Scenario 22: Online Job Portal</em>.
                 </p>
             </div>
             <div class="text-md-end mt-3 mt-md-0">
                 <span class="badge bg-success-subtle text-success border border-success px-3 py-2 fw-semibold d-block mb-1">
-                    <i class="fa-solid fa-check-circle me-1"></i> Academic Assessment Ready
+                    <i class="fa-solid fa-check-circle me-1"></i> Full Diagrams Suite (12 Diagrams)
                 </span>
                 <small class="text-muted">Student: <strong>Dharaneesh.K</strong> (732925ITR022) | Class: 25IT3A</small>
             </div>
@@ -116,32 +118,32 @@
     <ul class="nav nav-pills nav-pills-custom" id="seTabs" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="all-tab" data-bs-toggle="pill" data-bs-target="#tab-all" type="button" role="tab">
-                <i class="fa-solid fa-list-check me-1"></i> Full Overview (All 5 Units)
+                <i class="fa-solid fa-list-check me-1"></i> Full Specification (All 5 Units)
             </button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="unit1-tab" data-bs-toggle="pill" data-bs-target="#tab-unit1" type="button" role="tab">
-                <i class="fa-solid fa-water me-1 text-primary"></i> Unit 1: Software Process (Waterfall Model)
+                <i class="fa-solid fa-water me-1 text-primary"></i> Unit 1: Waterfall Model
             </button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="unit2-tab" data-bs-toggle="pill" data-bs-target="#tab-unit2" type="button" role="tab">
-                <i class="fa-solid fa-file-contract me-1 text-success"></i> Unit 2: SRS & Requirements (IEEE 830)
+                <i class="fa-solid fa-diagram-project me-1 text-success"></i> Unit 2: SRS & DFDs
             </button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="unit3-tab" data-bs-toggle="pill" data-bs-target="#tab-unit3" type="button" role="tab">
-                <i class="fa-solid fa-diagram-project me-1 text-info"></i> Unit 3: System Design & UML Diagrams
+                <i class="fa-solid fa-sitemap me-1 text-info"></i> Unit 3: UML Diagrams Suite
             </button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="unit4-tab" data-bs-toggle="pill" data-bs-target="#tab-unit4" type="button" role="tab">
-                <i class="fa-solid fa-vial-circle-check me-1 text-warning"></i> Unit 4: Testing & QA (16 Cases)
+                <i class="fa-solid fa-vial-circle-check me-1 text-warning"></i> Unit 4: Testing & CFG
             </button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="unit5-tab" data-bs-toggle="pill" data-bs-target="#tab-unit5" type="button" role="tab">
-                <i class="fa-solid fa-bars-progress me-1 text-danger"></i> Unit 5: Project Management & COCOMO
+                <i class="fa-solid fa-bars-progress me-1 text-danger"></i> Unit 5: Project Management & Gantt
             </button>
         </li>
     </ul>
@@ -162,31 +164,32 @@
                     <span class="badge bg-warning text-dark me-2">UNIT 1</span>
                     <h4 class="d-inline-block fw-bold mb-0">Software Process & The Classical Waterfall Model</h4>
                 </div>
-                <span class="badge bg-light text-dark">Linear Sequential Lifecycle Model</span>
+                <span class="badge bg-light text-dark">Diagram #1: Process Flow</span>
             </div>
             <div class="card-body p-4">
-                <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-water me-2"></i>1.1 The Classical Waterfall Lifecycle Model for Scenario 22</h5>
+                <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-water me-2"></i>1.1 The Classical Waterfall Lifecycle Model</h5>
                 <p>
-                    In software engineering, the <strong>Classical Waterfall Model</strong> (also known as the <em>Linear-Sequential Life Cycle Model</em>) 
-                    is the foundational process model wherein each phase must be completely executed and formally signed off before the next phase begins.
-                    For <strong>Scenario 22: Online Job Portal and Employment Trend Analysis System</strong>, the Waterfall Model was adopted because the system requirements, academic boundaries, eligibility algorithms, and deliverables were well-defined, stable, and completely known upfront.
+                    For <strong>Scenario 22: Online Job Portal and Employment Trend Analysis System</strong>, the <strong>Classical Waterfall Model</strong> (Linear-Sequential Life Cycle Model) was adopted. Because the academic scenario requirements, eligibility algorithms, and deliverables were well-defined and stable upfront, the linear-sequential progression ensured structured execution with explicit milestone verification.
                 </p>
 
-                <!-- Waterfall Diagram -->
-                <h6 class="fw-bold text-dark mt-4 mb-2"><i class="fa-solid fa-diagram-next me-2 text-primary"></i>Sequential Waterfall Flow Architecture</h6>
+                <!-- Diagram 1: Waterfall -->
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h6 class="fw-bold text-dark mb-0"><i class="fa-solid fa-diagram-next text-primary me-2"></i>Diagram 1: Classical Waterfall Lifecycle Flow</h6>
+                    <span class="badge bg-primary-subtle text-primary border border-primary-subtle diagram-badge">Lifecycle Model</span>
+                </div>
                 <div class="mermaid-container mb-4 text-center">
                     <pre class="mermaid">
 flowchart TD
     P1["1. Requirements Analysis & Specification<br/>(IEEE 830 SRS, Stakeholder Elicitation, Scope Definition)"]
-    P2["2. System & Software Design<br/>(N-Tier Architecture, UML Use Case, Class & Sequence Diagrams, BCNF Schema)"]
+    P2["2. System & Software Design<br/>(N-Tier Architecture, DFDs, UML 7 Diagrams, BCNF Schema)"]
     P3["3. Implementation & Unit Testing<br/>(Java 17 OOP Domain Models, DAOs, JDBC, Python EDA & Flask Portal)"]
-    P4["4. Integration & System Testing<br/>(White-Box Basis Path V(G)=4, Black-Box EP/BVA, 16-Case Execution Matrix)"]
-    P5["5. Operations, Deployment & Maintenance<br/>(Automated 1-Click Scripts, SCM Git Repository, Trend Visualizations)"]
+    P4["4. Integration & System Testing<br/>(White-Box Basis Path V(G)=4, Black-Box EP/BVA, 16-Case Matrix)"]
+    P5["5. Operations, Deployment & Maintenance<br/>(1-Click Windows Batch Scripts, SCM Git Push, Trend Visualizations)"]
 
-    P1 -->|SRS Sign-off| P2
-    P2 -->|Design Specs| P3
-    P3 -->|Source Code & Modules| P4
-    P4 -->|Verified System| P5
+    P1 -->|Formal SRS Sign-off| P2
+    P2 -->|Design Specifications| P3
+    P3 -->|Delivered Source Code| P4
+    P4 -->|Verified System (16/16 Passed)| P5
 
     style P1 fill:#dbeafe,stroke:#1d4ed8,stroke-width:2px,color:#0f172a
     style P2 fill:#ede9fe,stroke:#6d28d9,stroke-width:2px,color:#0f172a
@@ -211,84 +214,138 @@ flowchart TD
                         <tbody>
                             <tr>
                                 <td><strong>Phase 1: Requirements Analysis</strong></td>
-                                <td>Scenario 22 problem statement from placement cell.</td>
-                                <td>Elicit functional needs (CGPA cutoff, duplicate prevention, student profile, corporate vacancies).</td>
-                                <td><strong>Software Requirements Specification (SRS)</strong> compliant with IEEE 830-1998.</td>
+                                <td>Scenario 22 problem description.</td>
+                                <td>Elicit functional needs (CGPA cutoff, duplicate prevention, corporate vacancies, student profiles).</td>
+                                <td><strong>IEEE Std 830-1998 SRS</strong> document.</td>
                                 <td><span class="badge bg-success">SRS Approved</span>: [docs/SRS.md](file:///e:/Project1/docs/SRS.md)</td>
                             </tr>
                             <tr>
-                                <td><strong>Phase 2: System & Software Design</strong></td>
+                                <td><strong>Phase 2: System Design</strong></td>
                                 <td>Approved SRS with all functional requirements.</td>
-                                <td>Design N-tier architecture, UML diagrams (Use Case, Class, Sequence), relational ER diagram normalized to BCNF.</td>
-                                <td><strong>Design Specifications & UML Diagrams</strong> and DDL database schema.</td>
+                                <td>Design N-tier architecture, DFDs, UML diagrams (Use Case, Class, Sequence, Activity, State, Component, Deployment), BCNF schema.</td>
+                                <td><strong>Design Specifications & UML Diagrams</strong>.</td>
                                 <td><span class="badge bg-success">Design Verified</span>: [docs/DESIGN_DIAGRAMS.md](file:///e:/Project1/docs/DESIGN_DIAGRAMS.md)</td>
                             </tr>
                             <tr>
-                                <td><strong>Phase 3: Implementation (Coding)</strong></td>
-                                <td>UML Class diagrams, schema scripts, service interfaces.</td>
+                                <td><strong>Phase 3: Implementation</strong></td>
+                                <td>UML Class diagrams, schema scripts.</td>
                                 <td>Develop Java OOP entities, DAOs, custom exceptions, JDBC transactions, multithreading, Python EDA, and Flask UI.</td>
                                 <td><strong>Clean Source Code</strong> in `src/`, `python/`, `web/`, and `database/`.</td>
-                                <td><span class="badge bg-success">Compilation Success</span>: 0 compiler warnings/errors</td>
+                                <td><span class="badge bg-success">Compilation Success</span>: 0 warnings/errors</td>
                             </tr>
                             <tr>
                                 <td><strong>Phase 4: Integration & Testing</strong></td>
-                                <td>Executable codebase and initialized SQLite database.</td>
-                                <td>Execute Unit, Integration, Black-Box (EP, BVA), and White-Box (Cyclomatic Complexity) test cases.</td>
-                                <td><strong>Formal Testing Document & 16-Case Test Execution Matrix</strong>.</td>
+                                <td>Executable codebase and populated SQLite database.</td>
+                                <td>Execute Unit, Integration, Black-Box (EP, BVA), and White-Box (Basis Path CFG) test cases.</td>
+                                <td><strong>Testing Documentation & 16-Case Test Matrix</strong>.</td>
                                 <td><span class="badge bg-success">100% Pass Rate</span>: [docs/TESTING_DOCUMENT.md](file:///e:/Project1/docs/TESTING_DOCUMENT.md)</td>
                             </tr>
                             <tr>
                                 <td><strong>Phase 5: Deployment & Maintenance</strong></td>
-                                <td>Tested software package passing all acceptance criteria.</td>
-                                <td>Package 1-click batch scripts (`run_website.bat`, `build_and_run.bat`), push to GitHub repository, generate charts.</td>
+                                <td>Passing system test suite.</td>
+                                <td>Package 1-click batch scripts (`run_website.bat`), configure Git repository, deploy interactive web portal.</td>
                                 <td><strong>Operational System & Git Repository</strong>.</td>
-                                <td><span class="badge bg-success">Production Ready</span>: GitHub main branch clean</td>
+                                <td><span class="badge bg-success">Production Ready</span>: GitHub main synced</td>
                             </tr>
                         </tbody>
                     </table>
-                </div>
-
-                <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-scale-balanced me-2"></i>1.3 Justification for Selecting the Waterfall Model</h5>
-                <div class="row g-3">
-                    <div class="col-md-4">
-                        <div class="p-3 border rounded-3 bg-light h-100">
-                            <h6 class="fw-bold text-dark"><i class="fa-solid fa-lock text-primary me-2"></i>Stable, Well-Understood Requirements</h6>
-                            <p class="small text-muted mb-0">The problem definition for Scenario 22 is completely specified by the curriculum guidelines. No mid-development requirement volatility occurred.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="p-3 border rounded-3 bg-light h-100">
-                            <h6 class="fw-bold text-dark"><i class="fa-solid fa-file-shield text-success me-2"></i>Strict Milestone Documentation</h6>
-                            <p class="small text-muted mb-0">Academic and evaluation standards mandate formal intermediate sign-offs at the end of each phase (SRS &rarr; UML &rarr; Code &rarr; Test Document).</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="p-3 border rounded-3 bg-light h-100">
-                            <h6 class="fw-bold text-dark"><i class="fa-solid fa-layer-group text-info me-2"></i>Architectural Sequentiality</h6>
-                            <p class="small text-muted mb-0">Database tables (BCNF) and core Java models had to be established first before building business services, the web portal, and analytics.</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
 
         <!-- ========================================== -->
-        <!-- UNIT 2: REQUIREMENTS ANALYSIS & SRS (IEEE 830) -->
+        <!-- UNIT 2: REQUIREMENTS ANALYSIS & DFDs -->
         <!-- ========================================== -->
         <div class="card se-unit-card" id="unit2-section">
             <div class="se-unit-header d-flex justify-content-between align-items-center">
                 <div>
                     <span class="badge bg-warning text-dark me-2">UNIT 2</span>
-                    <h4 class="d-inline-block fw-bold mb-0">Software Requirements Engineering & IEEE 830 SRS</h4>
+                    <h4 class="d-inline-block fw-bold mb-0">Requirements Engineering, IEEE 830 SRS & Data Flow Diagrams</h4>
                 </div>
-                <span class="badge bg-light text-dark">IEEE Std 830-1998 Standard</span>
+                <span class="badge bg-light text-dark">Diagrams #2 & #3: DFD Level 0 & 1</span>
             </div>
             <div class="card-body p-4">
                 <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-clipboard-list me-2"></i>2.1 Requirements Engineering Lifecycle</h5>
                 <p>The requirements engineering process was carried out across four formal phases: <strong>Elicitation</strong> (studying placement cell workflows), <strong>Analysis & Negotiation</strong> (defining CGPA cutoffs and unique constraints), <strong>Specification</strong> (IEEE 830 SRS), and <strong>Validation</strong> (reviewing against scenario 22 requirements).</p>
 
+                <!-- Diagram 2: DFD Level 0 -->
+                <div class="d-flex justify-content-between align-items-center mb-2 mt-4">
+                    <h6 class="fw-bold text-dark mb-0"><i class="fa-solid fa-network-wired text-success me-2"></i>Diagram 2: DFD Level 0 (Context Diagram)</h6>
+                    <span class="badge bg-success-subtle text-success border border-success-subtle diagram-badge">Context Level</span>
+                </div>
+                <div class="mermaid-container mb-4">
+                    <pre class="mermaid">
+flowchart LR
+    Student["External Entity:<br/><b>Student / Candidate</b>"]
+    Recruiter["External Entity:<br/><b>Corporate Recruiter</b>"]
+    Admin["External Entity:<br/><b>Placement Officer</b>"]
+    System(("<b>0.0</b><br/>Online Job Portal &<br/>Employment Trend<br/>Analysis System"))
+    EmailSystem["External Entity:<br/><b>Async Notification Service</b>"]
+
+    Student -- "Profile registration, Job applications" --> System
+    System -- "Eligibility alerts, Vacancy listings, App Status" --> Student
+
+    Recruiter -- "Employer profile, Job vacancies, Selection status" --> System
+    System -- "Candidate roster, Applicant resumes" --> Recruiter
+
+    Admin -- "Reporting queries, Audit parameters" --> System
+    System -- "Department placement rates, 8 Trend charts" --> Admin
+
+    System -- "Email / SMS notification triggers" --> EmailSystem
+                    </pre>
+                </div>
+
+                <!-- Diagram 3: DFD Level 1 -->
+                <div class="d-flex justify-content-between align-items-center mb-2 mt-4">
+                    <h6 class="fw-bold text-dark mb-0"><i class="fa-solid fa-diagram-project text-success me-2"></i>Diagram 3: DFD Level 1 (Functional Decomposition)</h6>
+                    <span class="badge bg-success-subtle text-success border border-success-subtle diagram-badge">Functional Decomposition</span>
+                </div>
+                <div class="mermaid-container mb-4">
+                    <pre class="mermaid">
+flowchart TD
+    Student["Student"]
+    Recruiter["Corporate Recruiter"]
+    Admin["Placement Officer"]
+
+    P1(("1.0<br/>Student Profile<br/>Management"))
+    P2(("2.0<br/>Company & Vacancy<br/>Publishing"))
+    P3(("3.0<br/>Eligibility & Application<br/>Processing"))
+    P4(("4.0<br/>Recruitment Status<br/>Tracking"))
+    P5(("5.0<br/>Reporting & Trend<br/>Analytics"))
+
+    D1[("D1: Students Store")]
+    D2[("D2: Companies Store")]
+    D3[("D3: Vacancies Store")]
+    D4[("D4: Applications Store")]
+
+    Student -->|Profile info| P1
+    P1 -->|Write record| D1
+
+    Recruiter -->|Employer info| P2
+    P2 -->|Write company| D2
+    Recruiter -->|Job vacancy details| P2
+    P2 -->|Write vacancy| D3
+
+    Student -->|Apply request (student_id, vacancy_id)| P3
+    D1 -->|Read candidate CGPA & Dept| P3
+    D3 -->|Read Cutoff & Allowed Depts| P3
+    P3 -->|Check duplicate & insert| D4
+    P3 -->|Success confirmation / Ineligibility exception| Student
+
+    Recruiter -->|Update interview round & status| P4
+    P4 -->|Update record| D4
+    P4 -->|Status update alert| Student
+
+    Admin -->|Request institutional analytics| P5
+    D1 -->|Student counts| P5
+    D4 -->|Selection records| P5
+    D3 -->|Salary benchmarks| P5
+    P5 -->|Placement tables & 8 Visual Charts| Admin
+                    </pre>
+                </div>
+
                 <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-list-check me-2"></i>2.2 Functional Requirements (FR) Specification</h5>
-                <div class="table-responsive mb-4">
+                <div class="table-responsive">
                     <table class="table table-bordered table-se align-middle">
                         <thead>
                             <tr>
@@ -352,61 +409,40 @@ flowchart TD
                         </tbody>
                     </table>
                 </div>
-
-                <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-shield-halved me-2"></i>2.3 Non-Functional Requirements (NFR)</h5>
-                <div class="row g-3">
-                    <div class="col-md-3">
-                        <div class="p-3 border rounded-3 bg-light">
-                            <h6 class="fw-bold text-dark"><i class="fa-solid fa-gauge-high text-primary me-1"></i> Performance</h6>
-                            <p class="small text-muted mb-0">Sub-second query response (&lt;50ms) using indexed primary/foreign keys in SQLite.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="p-3 border rounded-3 bg-light">
-                            <h6 class="fw-bold text-dark"><i class="fa-solid fa-lock text-success me-1"></i> Data Security</h6>
-                            <p class="small text-muted mb-0">100% parameterized SQL prepared statements to eliminate SQL Injection attacks.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="p-3 border rounded-3 bg-light">
-                            <h6 class="fw-bold text-dark"><i class="fa-solid fa-database text-warning me-1"></i> Data Integrity</h6>
-                            <p class="small text-muted mb-0">Relational schema normalized to BCNF with strict foreign key cascading rules.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="p-3 border rounded-3 bg-light">
-                            <h6 class="fw-bold text-dark"><i class="fa-solid fa-laptop-code text-info me-1"></i> Usability & Portability</h6>
-                            <p class="small text-muted mb-0">Dual-channel access: Interactive Java CLI Menu + Responsive Web Portal UI.</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
 
         <!-- ========================================== -->
-        <!-- UNIT 3: SOFTWARE DESIGN & ARCHITECTURE (UML) -->
+        <!-- UNIT 3: SYSTEM DESIGN & COMPLETE UML SUITE -->
         <!-- ========================================== -->
         <div class="card se-unit-card" id="unit3-section">
             <div class="se-unit-header d-flex justify-content-between align-items-center">
                 <div>
                     <span class="badge bg-warning text-dark me-2">UNIT 3</span>
-                    <h4 class="d-inline-block fw-bold mb-0">Software Design, System Architecture & UML Modeling</h4>
+                    <h4 class="d-inline-block fw-bold mb-0">System Design, Architecture & Complete UML Suite</h4>
                 </div>
-                <span class="badge bg-light text-dark">N-Tier Architecture & UML 2.5</span>
+                <span class="badge bg-light text-dark">Diagrams #4 to #10 (7 UML Models)</span>
             </div>
             <div class="card-body p-4">
-                <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-sitemap me-2"></i>3.1 N-Tier Layered Architectural Pattern</h5>
-                <p>The system enforces strict separation of concerns through an enterprise layered design: Presentation (CLI/Web), Service (Business Rules), DAO (Data Access), Persistence (SQLite), and Analytics (Python EDA).</p>
+                <p>
+                    Software design translates the requirements model into technical representations. Below is the full suite of 
+                    <strong>7 architectural and UML diagrams</strong> covering structural, behavioral, interaction, and physical views:
+                </p>
 
+                <!-- Diagram 4: Architecture -->
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h6 class="fw-bold text-dark mb-0"><i class="fa-solid fa-layer-group text-info me-2"></i>Diagram 4: N-Tier Layered System Architecture</h6>
+                    <span class="badge bg-info-subtle text-info border border-info-subtle diagram-badge">Structural Architecture</span>
+                </div>
                 <div class="mermaid-container mb-4">
                     <pre class="mermaid">
 graph TD
-    subgraph Presentation_Layer ["Presentation & Interaction Layer"]
+    subgraph Presentation_Layer ["1. Presentation & Interaction Layer"]
         CLI["Java Interactive Console Menu (Main.java)"]
-        WEB["Flask Web Portal (app.py)"]
+        WEB["Flask Web Portal (app.py & Bootstrap 5)"]
     end
 
-    subgraph Service_Layer ["Business Logic & Service Layer"]
+    subgraph Service_Layer ["2. Business Logic & Service Layer"]
         SVC["JobPortalService Interface"]
         SVC_IMPL["JobPortalServiceImpl"]
         RULES["Smart Eligibility Engine"]
@@ -414,19 +450,19 @@ graph TD
         REPORT["ReportGenerator (Stream API & Collections)"]
     end
 
-    subgraph DAO_Layer ["Data Access Object (DAO) Layer"]
+    subgraph DAO_Layer ["3. Data Access Object (DAO) Layer"]
         S_DAO["StudentDAO"]
         C_DAO["CompanyDAO"]
         V_DAO["VacancyDAO"]
         A_DAO["ApplicationDAO"]
     end
 
-    subgraph Persistence_Layer ["Persistence & Storage Layer"]
+    subgraph Persistence_Layer ["4. Persistence & Storage Layer"]
         DBCONN["Singleton DatabaseConnection (JDBC / SQLite3)"]
         SQLITE[("job_portal.db (Relational BCNF Tables)")]
     end
 
-    subgraph Analytics_Layer ["Python Data Science Layer"]
+    subgraph Analytics_Layer ["5. Python Data Science Layer"]
         PREPROC["NumPy Wrangling & IQR Outliers"]
         VIZ["Matplotlib / Seaborn 8 Charts Generator"]
     end
@@ -453,9 +489,11 @@ graph TD
                     </pre>
                 </div>
 
-                <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-user-gear me-2"></i>3.2 UML Use Case Diagram</h5>
-                <p>Illustrates the functional boundaries and relationships (<code>&lt;&lt;includes&gt;&gt;</code> and <code>&lt;&lt;triggers&gt;&gt;</code>) between all 4 system actors:</p>
-
+                <!-- Diagram 5: Use Case -->
+                <div class="d-flex justify-content-between align-items-center mb-2 mt-4">
+                    <h6 class="fw-bold text-dark mb-0"><i class="fa-solid fa-user-gear text-info me-2"></i>Diagram 5: UML Use Case Diagram</h6>
+                    <span class="badge bg-info-subtle text-info border border-info-subtle diagram-badge">Behavioral View</span>
+                </div>
                 <div class="mermaid-container mb-4">
                     <pre class="mermaid">
 flowchart LR
@@ -499,9 +537,11 @@ flowchart LR
                     </pre>
                 </div>
 
-                <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-network-wired me-2"></i>3.3 UML Class Diagram</h5>
-                <p>Documents static domain object-oriented encapsulation, attributes, operations, and relationships:</p>
-
+                <!-- Diagram 6: Class Diagram -->
+                <div class="d-flex justify-content-between align-items-center mb-2 mt-4">
+                    <h6 class="fw-bold text-dark mb-0"><i class="fa-solid fa-sitemap text-info me-2"></i>Diagram 6: UML Class Diagram (Static Structure)</h6>
+                    <span class="badge bg-info-subtle text-info border border-info-subtle diagram-badge">Object-Oriented Structure</span>
+                </div>
                 <div class="mermaid-container mb-4">
                     <pre class="mermaid">
 classDiagram
@@ -564,8 +604,12 @@ classDiagram
                     </pre>
                 </div>
 
-                <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-arrows-split-up-and-left me-2"></i>3.4 UML Sequence Diagram (Application Submission)</h5>
-                <div class="mermaid-container">
+                <!-- Diagram 7: Sequence Diagram -->
+                <div class="d-flex justify-content-between align-items-center mb-2 mt-4">
+                    <h6 class="fw-bold text-dark mb-0"><i class="fa-solid fa-arrows-split-up-and-left text-info me-2"></i>Diagram 7: UML Sequence Diagram (Job Application Runtime)</h6>
+                    <span class="badge bg-info-subtle text-info border border-info-subtle diagram-badge">Dynamic Interaction</span>
+                </div>
+                <div class="mermaid-container mb-4">
                     <pre class="mermaid">
 sequenceDiagram
     autonumber
@@ -606,6 +650,104 @@ sequenceDiagram
     end
                     </pre>
                 </div>
+
+                <!-- Diagram 8: Activity Diagram -->
+                <div class="d-flex justify-content-between align-items-center mb-2 mt-4">
+                    <h6 class="fw-bold text-dark mb-0"><i class="fa-solid fa-arrow-progress text-info me-2"></i>Diagram 8: UML Activity Diagram (Application & Eligibility Workflow)</h6>
+                    <span class="badge bg-info-subtle text-info border border-info-subtle diagram-badge">Procedural Workflow</span>
+                </div>
+                <div class="mermaid-container mb-4">
+                    <pre class="mermaid">
+flowchart TD
+    StartNode((Start)) --> InputData["Candidate Selects Vacancy & Submits Profile"]
+    InputData --> CheckDuplicate{"Has Candidate<br/>Already Applied?"}
+
+    CheckDuplicate -- "Yes" --> RejectDuplicate["Throw DuplicateApplicationException<br/>and Display Flash Error"]
+    RejectDuplicate --> EndNode((End))
+
+    CheckDuplicate -- "No" --> CheckCGPA{"Is Candidate CGPA<br/>>= Minimum Cutoff?"}
+
+    CheckCGPA -- "No" --> RejectCGPA["Throw IneligibleCandidateException<br/>(Low CGPA Reason)"]
+    RejectCGPA --> EndNode
+
+    CheckCGPA -- "Yes" --> CheckDept{"Is Department in<br/>Eligible List or 'ALL'?"}
+
+    CheckDept -- "No" --> RejectDept["Throw IneligibleCandidateException<br/>(Dept Mismatch Reason)"]
+    RejectDept --> EndNode
+
+    CheckDept -- "Yes" --> ForkNode[=== Fork Parallel Tasks ===]
+
+    ForkNode --> SaveDB["Insert Record into applications table<br/>Status: 'APPLIED', Round: 1"]
+    ForkNode --> AsyncNotify["Spawn Background Thread:<br/>Dispatch Email & SMS Confirmation"]
+
+    SaveDB --> JoinNode[=== Join Operations ===]
+    AsyncNotify --> JoinNode
+
+    JoinNode --> SuccessMsg["Display Application Success Confirmation<br/>Generate Tracking ID #appId"]
+    SuccessMsg --> EndNode
+                    </pre>
+                </div>
+
+                <!-- Diagram 9: State Machine Diagram -->
+                <div class="d-flex justify-content-between align-items-center mb-2 mt-4">
+                    <h6 class="fw-bold text-dark mb-0"><i class="fa-solid fa-repeat text-info me-2"></i>Diagram 9: UML State Machine Diagram (Application Lifecycle)</h6>
+                    <span class="badge bg-info-subtle text-info border border-info-subtle diagram-badge">Entity States</span>
+                </div>
+                <div class="mermaid-container mb-4">
+                    <pre class="mermaid">
+stateDiagram-v2
+    [*] --> APPLIED: Student submits valid application
+    
+    APPLIED --> SHORTLISTED: Recruiter reviews profile & clears Round 1
+    APPLIED --> REJECTED: Candidate fails initial screening
+    
+    SHORTLISTED --> SHORTLISTED: Advances to subsequent rounds (Round 2, Technical, HR)
+    SHORTLISTED --> SELECTED: Successfully clears all evaluation rounds (Offer Extended)
+    SHORTLISTED --> REJECTED: Candidate rejected in intermediate interview round
+    
+    SELECTED --> [*]: Final Placement Confirmed
+    REJECTED --> [*]: Candidate Evaluation Terminated
+                    </pre>
+                </div>
+
+                <!-- Diagram 10: Component & Deployment Diagram -->
+                <div class="d-flex justify-content-between align-items-center mb-2 mt-4">
+                    <h6 class="fw-bold text-dark mb-0"><i class="fa-solid fa-cubes text-info me-2"></i>Diagram 10: UML Component & Physical Deployment Diagram</h6>
+                    <span class="badge bg-info-subtle text-info border border-info-subtle diagram-badge">Physical Architecture</span>
+                </div>
+                <div class="mermaid-container mb-4">
+                    <pre class="mermaid">
+flowchart TB
+    subgraph ClientNode ["<<device>> Client Workstation / Browser"]
+        BrowserUI["HTML5 / Bootstrap 5 / JavaScript Web Interface"]
+        CLIConsole["PowerShell / Command Prompt Standard I/O"]
+    end
+
+    subgraph ServerNode ["<<device>> Local Application Host / Server"]
+        subgraph FlaskRuntime ["<<execution environment>> Python 3.12 Runtime"]
+            FlaskServer["Flask WSGI HTTP Server (:5000)"]
+            AnalyticsScripts["NumPy / Matplotlib Analytics Engine"]
+        end
+
+        subgraph JavaRuntime ["<<execution environment>> OpenJDK 17 LTS"]
+            JavaJVM["Java Virtual Machine (JVM)"]
+            JDBCDriver["sqlite-jdbc-3.45.1.0.jar Driver"]
+        end
+
+        subgraph FileSystem ["<<file system>> Local Relational Storage"]
+            SQLiteDB[("<<artifact>><br/>database/job_portal.db")]
+            CSVStore["<<artifact>><br/>output/*.csv & output/visualizations/*.png"]
+        end
+    end
+
+    BrowserUI -- "HTTP GET / POST (:5000)" --> FlaskServer
+    CLIConsole -- "Standard In/Out" --> JavaJVM
+    FlaskServer -- "sqlite3 Driver" --> SQLiteDB
+    JavaJVM -- "JDBC Connection" --> JDBCDriver
+    JDBCDriver -- "Direct File Access" --> SQLiteDB
+    AnalyticsScripts -- "Read SQLite / Write CSV & PNG" --> FileSystem
+                    </pre>
+                </div>
             </div>
         </div>
 
@@ -618,11 +760,50 @@ sequenceDiagram
                     <span class="badge bg-warning text-dark me-2">UNIT 4</span>
                     <h4 class="d-inline-block fw-bold mb-0">Software Testing Strategies, Techniques & Test Cases</h4>
                 </div>
-                <span class="badge bg-light text-dark">Black-Box, White-Box & 16-Case Matrix</span>
+                <span class="badge bg-light text-dark">Diagram #11: Control Flow Graph (CFG)</span>
             </div>
             <div class="card-body p-4">
                 <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-vial me-2"></i>4.1 Testing Levels & Strategies</h5>
                 <p>Testing was performed hierarchically across all four software engineering levels: <strong>Unit Testing</strong> (DAOs, regular expression validators, model getters/setters), <strong>Integration Testing</strong> (Service layer coordinating with SQLite JDBC transactions), <strong>System Testing</strong> (End-to-end recruitment drives and reporting), and <strong>Acceptance Testing</strong> (Verification against Scenario 22 deliverables).</p>
+
+                <!-- Diagram 11: Control Flow Graph -->
+                <div class="d-flex justify-content-between align-items-center mb-2 mt-4">
+                    <h6 class="fw-bold text-dark mb-0"><i class="fa-solid fa-code-fork text-warning me-2"></i>Diagram 11: Control Flow Graph (CFG) for White-Box Basis Path Testing</h6>
+                    <span class="badge bg-warning-subtle text-warning border border-warning-subtle diagram-badge">White-Box Structural CFG</span>
+                </div>
+                <div class="mermaid-container mb-4">
+                    <pre class="mermaid">
+flowchart TD
+    N1(["1: Entry: isEligible(student, vacancy)"])
+    N2{"2: Predicate 1: CGPA >= minCgpa?"}
+    N3["3: Throw IneligibleCandidateException (Low CGPA)"]
+    N4{"4: Predicate 2: eligibleDepts == 'ALL'?"}
+    N5{"5: Predicate 3: deptsList.contains(studentDept)?"}
+    N6["6: Return true (Candidate is Eligible)"]
+    N7["7: Throw IneligibleCandidateException (Dept Mismatch)"]
+    N8(["8: Exit"])
+
+    N1 --> N2
+    N2 -- "False (Predicate 1 False)" --> N3
+    N3 --> N8
+    N2 -- "True (Predicate 1 True)" --> N4
+    N4 -- "True (Predicate 2 True)" --> N6
+    N4 -- "False (Predicate 2 False)" --> N5
+    N5 -- "True (Predicate 3 True)" --> N6
+    N5 -- "False (Predicate 3 False)" --> N7
+    N6 --> N8
+    N7 --> N8
+
+    style N1 fill:#dbeafe,stroke:#1d4ed8,stroke-width:2px,color:#0f172a
+    style N2 fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#0f172a
+    style N3 fill:#fee2e2,stroke:#dc2626,stroke-width:2px,color:#0f172a
+    style N4 fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#0f172a
+    style N5 fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#0f172a
+    style N6 fill:#dcfce7,stroke:#15803d,stroke-width:2px,color:#0f172a
+    style N7 fill:#fee2e2,stroke:#dc2626,stroke-width:2px,color:#0f172a
+    style N8 fill:#dbeafe,stroke:#1d4ed8,stroke-width:2px,color:#0f172a
+                    </pre>
+                </div>
 
                 <div class="row g-4 mb-4">
                     <div class="col-lg-6">
@@ -827,18 +1008,15 @@ sequenceDiagram
                     <span class="badge bg-warning text-dark me-2">UNIT 5</span>
                     <h4 class="d-inline-block fw-bold mb-0">Software Project Management, Estimation, Scheduling & Maintenance</h4>
                 </div>
-                <span class="badge bg-light text-dark">COCOMO, FPA, Gantt Scheduling, RMMM & SCM</span>
+                <span class="badge bg-light text-dark">Diagram #12: Gantt Schedule</span>
             </div>
             <div class="card-body p-4">
 
-                <!-- 5.1 Project Planning & Scheduling (Gantt Chart) -->
-                <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-calendar-check me-2"></i>5.1 Software Project Planning, Milestones & Gantt Timeline</h5>
-                <p>
-                    Effective project management requires structuring development into predictable milestones mapped to the 
-                    <strong>Classical Waterfall Model</strong> across the academic semester timeline (16 Weeks). 
-                    Each milestone represents a formal deliverable inspected before moving forward.
-                </p>
-
+                <!-- Diagram 12: Gantt Chart -->
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h6 class="fw-bold text-dark mb-0"><i class="fa-solid fa-calendar-check text-danger me-2"></i>Diagram 12: Waterfall Project Schedule & Milestones (16 Weeks Gantt Chart)</h6>
+                    <span class="badge bg-danger-subtle text-danger border border-danger-subtle diagram-badge">Gantt Milestone Schedule</span>
+                </div>
                 <div class="mermaid-container mb-4">
                     <pre class="mermaid">
 gantt
@@ -1057,35 +1235,35 @@ gantt
     <!-- TAB: UNIT 1 ONLY -->
     <div class="tab-pane fade" id="tab-unit1" role="tabpanel">
         <div class="alert alert-info">
-            <i class="fa-solid fa-arrow-down me-1"></i> Viewing <strong>Unit 1: Software Process (Classical Waterfall Model)</strong>.
+            <i class="fa-solid fa-arrow-down me-1"></i> Viewing <strong>Unit 1: Software Process (Classical Waterfall Model & Diagram 1)</strong>.
         </div>
     </div>
 
     <!-- TAB: UNIT 2 ONLY -->
     <div class="tab-pane fade" id="tab-unit2" role="tabpanel">
         <div class="alert alert-info">
-            <i class="fa-solid fa-arrow-down me-1"></i> Viewing <strong>Unit 2: Software Requirements Engineering & IEEE 830 SRS</strong>.
+            <i class="fa-solid fa-arrow-down me-1"></i> Viewing <strong>Unit 2: SRS & Data Flow Diagrams (Diagrams 2 & 3: DFD Level 0 & Level 1)</strong>.
         </div>
     </div>
 
     <!-- TAB: UNIT 3 ONLY -->
     <div class="tab-pane fade" id="tab-unit3" role="tabpanel">
         <div class="alert alert-info">
-            <i class="fa-solid fa-arrow-down me-1"></i> Viewing <strong>Unit 3: Software Design, System Architecture & UML Modeling</strong>.
+            <i class="fa-solid fa-arrow-down me-1"></i> Viewing <strong>Unit 3: Complete UML Suite (Diagrams 4 to 10: Architecture, Use Case, Class, Sequence, Activity, State, Component, Deployment)</strong>.
         </div>
     </div>
 
     <!-- TAB: UNIT 4 ONLY -->
     <div class="tab-pane fade" id="tab-unit4" role="tabpanel">
         <div class="alert alert-info">
-            <i class="fa-solid fa-arrow-down me-1"></i> Viewing <strong>Unit 4: Software Testing Strategies, Techniques & Test Cases</strong>.
+            <i class="fa-solid fa-arrow-down me-1"></i> Viewing <strong>Unit 4: Software Testing & Control Flow Graph (Diagram 11: CFG V(G)=4)</strong>.
         </div>
     </div>
 
     <!-- TAB: UNIT 5 ONLY -->
     <div class="tab-pane fade" id="tab-unit5" role="tabpanel">
         <div class="alert alert-info">
-            <i class="fa-solid fa-arrow-down me-1"></i> Viewing <strong>Unit 5: Project Management, COCOMO Estimation, Scheduling & Maintenance</strong>.
+            <i class="fa-solid fa-arrow-down me-1"></i> Viewing <strong>Unit 5: Project Management & Gantt Schedule (Diagram 12: 16-Week Waterfall Timeline)</strong>.
         </div>
     </div>
 
