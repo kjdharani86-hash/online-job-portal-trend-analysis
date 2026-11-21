@@ -66,7 +66,8 @@ INSERT INTO students (student_id, name, department, qualification, cgpa, skills,
 ('732925MER014', 'Dinesh Babu K', 'MECH', 'B.E MECH', 6.40, 'Manufacturing, Operations, MS Office', 'dinesh.me14@vcet.ac.in', '9876543235'),
 ('732925MER026', 'Kishore J', 'MECH', 'B.E MECH', 7.85, 'ANSYS, Python, Data Analytics, CAD', 'kishore.me26@vcet.ac.in', '9876543236'),
 ('732925MER038', 'Rahul C', 'MECH', 'B.E MECH', 6.70, 'Supply Chain, Quality Control, Basics IT', 'rahul.me38@vcet.ac.in', '9876543237'),
-('732925MER051', 'Vigneshwaran P', 'MECH', 'B.E MECH', 8.00, 'Automation, Robotics, Python, C++', 'vignesh.me51@vcet.ac.in', '9876543238');
+('732925MER051', 'Vigneshwaran P', 'MECH', 'B.E MECH', 8.00, 'Automation, Robotics, Python, C++', 'vignesh.me51@vcet.ac.in', '9876543238'),
+('732925ITR095', 'Suresh Kumar N', 'IT', 'B.Tech IT', 8.25, 'Java, Spring Boot, MySQL, REST APIs, Git', 'suresh.it95@vcet.ac.in', '9876543239');
 
 -- ----------------------------------------------------------------------------
 -- 4. APPLICATIONS SEED DATA
@@ -190,4 +191,8 @@ INSERT INTO applications (student_id, vacancy_id, apply_date, status, interview_
 
 -- Student Vigneshwaran P (MECH, CGPA 8.00)
 ('732925MER051', 3, '2026-09-03 11:45:00', 'SELECTED', 3, 'TCS Systems Engineer offer accepted'),
-('732925MER051', 12, '2026-09-05 16:30:00', 'SELECTED', 3, 'Accenture Associate Software Engineer offer received');
+('732925MER051', 12, '2026-09-05 16:30:00', 'SELECTED', 3, 'Accenture Associate Software Engineer offer received'),
+
+-- Student Suresh Kumar N (IT, CGPA 8.25)
+('732925ITR095', 1, '2026-09-02 10:30:00', 'SELECTED', 3, 'Cleared technical interview and system design round at Zoho'),
+('732925ITR095', 3, '2026-09-04 14:15:00', 'SHORTLISTED', 2, 'Passed TCS Digital assessment; awaiting final interview');

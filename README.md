@@ -49,7 +49,7 @@ Project1/
 │   └── TESTING_DOCUMENT.md                # Testing Techniques & 16-Case Test Execution Matrix
 ├── database/                              # Database Scripts & Persistence Engine
 │   ├── schema.sql                         # DDL Schema with Tables, Constraints & Indexes
-│   ├── seed_data.sql                      # Realistic Dataset (29 Students, 8 Companies, 12 Vacancies, 62 Apps)
+│   ├── seed_data.sql                      # Realistic Dataset (30 Students, 8 Companies, 12 Vacancies, 64 Apps)
 │   ├── analytical_queries.sql             # Advanced SQL Analytics (Joins, Aggregations, Subqueries)
 │   ├── init_db.py                         # Automated SQLite Database Provisioner
 │   └── job_portal.db                      # SQLite Relational Database File
@@ -161,7 +161,7 @@ Project1/
 ```bash
 python database/init_db.py
 ```
-*Creates `database/job_portal.db` with 29 students, 8 companies, 12 vacancies, and 62 applications.*
+*Creates `database/job_portal.db` with 30 students, 8 companies, 12 vacancies, and 64 applications.*
 
 #### 2. Java Compilation
 ```bash
