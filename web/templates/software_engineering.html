@@ -1,0 +1,1029 @@
+{% extends "base.html" %}
+
+{% block title %}Software Engineering (25ITT33) - 5 Units Coverage | Online Job Portal{% endblock %}
+
+{% block extra_head %}
+<!-- Mermaid.js for Dynamic UML Rendering -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+    mermaid.initialize({
+        startOnLoad: true,
+        theme: 'default',
+        securityLevel: 'loose',
+        flowchart: { useMaxWidth: true, htmlLabels: true }
+    });
+</script>
+<style>
+    .se-unit-card {
+        border-radius: 12px;
+        border: none;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+        margin-bottom: 2rem;
+        overflow: hidden;
+    }
+    .se-unit-header {
+        background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+        color: #ffffff;
+        padding: 1.25rem 1.5rem;
+    }
+    .nav-pills-custom .nav-link {
+        color: #475569;
+        font-weight: 600;
+        border-radius: 8px;
+        padding: 0.6rem 1.1rem;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+        background-color: #f1f5f9;
+        transition: all 0.2s ease;
+    }
+    .nav-pills-custom .nav-link:hover {
+        background-color: #e2e8f0;
+        color: #0f172a;
+    }
+    .nav-pills-custom .nav-link.active {
+        background-color: #0d6efd;
+        color: #ffffff;
+        box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+    }
+    .table-se th {
+        background-color: #f8fafc;
+        color: #334155;
+        font-weight: 600;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .table-se td {
+        font-size: 0.9rem;
+        vertical-align: middle;
+    }
+    .mermaid-container {
+        background-color: #ffffff;
+        border-radius: 8px;
+        padding: 1.5rem;
+        border: 1px solid #e2e8f0;
+        overflow-x: auto;
+    }
+    .formula-box {
+        background-color: #f8fafc;
+        border-left: 4px solid #0d6efd;
+        padding: 1rem 1.25rem;
+        border-radius: 0 8px 8px 0;
+        font-family: 'Courier New', Courier, monospace;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<div class="card border-0 shadow-sm rounded-3 mb-4 bg-white">
+    <div class="card-body p-4">
+        <div class="d-flex flex-wrap justify-content-between align-items-center">
+            <div>
+                <div class="d-flex align-items-center mb-2">
+                    <span class="badge bg-primary px-3 py-2 me-2 fs-6">
+                        <i class="fa-solid fa-graduation-cap me-1"></i> Course: 25ITT33
+                    </span>
+                    <span class="badge bg-dark px-3 py-2 fs-6">
+                        Software Engineering
+                    </span>
+                </div>
+                <h2 class="fw-bold text-dark mb-1">Five Units Comprehensive Engineering Specification</h2>
+                <p class="text-muted mb-0">
+                    Demonstration of end-to-end Software Engineering lifecycle methodologies for <strong>Scenario 22: Online Job Portal & Employment Trend Analysis System</strong>.
+                </p>
+            </div>
+            <div class="text-md-end mt-3 mt-md-0">
+                <span class="badge bg-success-subtle text-success border border-success px-3 py-2 fw-semibold d-block mb-1">
+                    <i class="fa-solid fa-check-circle me-1"></i> Academic Assessment Ready
+                </span>
+                <small class="text-muted">Student: <strong>Dharaneesh.K</strong> (732925ITR022) | Class: 25IT3A</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Navigation Bar for 5 Units -->
+<div class="mb-4">
+    <ul class="nav nav-pills nav-pills-custom" id="seTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="all-tab" data-bs-toggle="pill" data-bs-target="#tab-all" type="button" role="tab">
+                <i class="fa-solid fa-list-check me-1"></i> Full Overview (All 5 Units)
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="unit1-tab" data-bs-toggle="pill" data-bs-target="#tab-unit1" type="button" role="tab">
+                <i class="fa-solid fa-rotate me-1 text-primary"></i> Unit 1: Process & Agile
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="unit2-tab" data-bs-toggle="pill" data-bs-target="#tab-unit2" type="button" role="tab">
+                <i class="fa-solid fa-file-contract me-1 text-success"></i> Unit 2: SRS & Requirements
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="unit3-tab" data-bs-toggle="pill" data-bs-target="#tab-unit3" type="button" role="tab">
+                <i class="fa-solid fa-diagram-project me-1 text-info"></i> Unit 3: UML & Design
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="unit4-tab" data-bs-toggle="pill" data-bs-target="#tab-unit4" type="button" role="tab">
+                <i class="fa-solid fa-vial-circle-check me-1 text-warning"></i> Unit 4: Testing & QA
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="unit5-tab" data-bs-toggle="pill" data-bs-target="#tab-unit5" type="button" role="tab">
+                <i class="fa-solid fa-calculator me-1 text-danger"></i> Unit 5: Project Management & COCOMO
+            </button>
+        </li>
+    </ul>
+</div>
+
+<!-- Tab Content Container -->
+<div class="tab-content" id="seTabsContent">
+
+    <!-- TAB: ALL 5 UNITS OVERVIEW -->
+    <div class="tab-pane fade show active" id="tab-all" role="tabpanel">
+
+        <!-- ========================================== -->
+        <!-- UNIT 1: SOFTWARE PROCESS & AGILE DEVELOPMENT -->
+        <!-- ========================================== -->
+        <div class="card se-unit-card" id="unit1-section">
+            <div class="se-unit-header d-flex justify-content-between align-items-center">
+                <div>
+                    <span class="badge bg-warning text-dark me-2">UNIT 1</span>
+                    <h4 class="d-inline-block fw-bold mb-0">Software Process & Agile Development</h4>
+                </div>
+                <span class="badge bg-light text-dark">Agile Scrum / Iterative Lifecycle</span>
+            </div>
+            <div class="card-body p-4">
+                <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-code-fork me-2"></i>1.1 Software Development Lifecycle (SDLC) Model Comparison</h5>
+                <p>For the Online Job Portal and Employment Trend Analysis System, an <strong>Agile-Scrum Iterative Development Model</strong> was selected over the traditional linear Waterfall model to support continuous integration, early stakeholder feedback, and iterative verification across multi-course deliverables.</p>
+
+                <div class="table-responsive mb-4">
+                    <table class="table table-bordered table-se align-middle">
+                        <thead>
+                            <tr>
+                                <th>Lifecycle Model</th>
+                                <th>Characteristics</th>
+                                <th>Advantages for Project</th>
+                                <th>Evaluation for Scenario 22</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Classical Waterfall Model</strong></td>
+                                <td>Linear, sequential phases (Requirements &rarr; Design &rarr; Coding &rarr; Testing).</td>
+                                <td>Clear milestones and structured formal sign-offs.</td>
+                                <td><span class="badge bg-secondary">Rejected</span>: Inflexible to changes; testing delayed until late stages.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Spiral / Risk-Driven Model</strong></td>
+                                <td>Cyclic progression addressing risk assessment at every loop.</td>
+                                <td>Strong risk management for high-risk software.</td>
+                                <td><span class="badge bg-secondary">Overkill</span>: High management overhead for academic scenario.</td>
+                            </tr>
+                            <tr class="table-success">
+                                <td><strong>Agile Scrum (Selected)</strong></td>
+                                <td>Iterative sprints (2-week increments), cross-functional, continuous testing.</td>
+                                <td>Fast delivery of increments (Database &rarr; Service &rarr; Web GUI &rarr; ML Charts).</td>
+                                <td><span class="badge bg-success">Adopted</span>: Perfectly matched the 4 integrated curriculum courses.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-calendar-week me-2"></i>1.2 Project Sprint Cadence Breakdown</h5>
+                <div class="row g-3 mb-4">
+                    <div class="col-md-4">
+                        <div class="p-3 border rounded-3 bg-light h-100">
+                            <span class="badge bg-primary mb-2">Sprint 1 (Days 1 - 3)</span>
+                            <h6 class="fw-bold">Database & Entity Modeling</h6>
+                            <p class="small text-muted mb-0">DDL Schema creation, BCNF normalization, SQLite constraints, and synthetic seed data injection (29 students, 8 companies, 12 vacancies).</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3 border rounded-3 bg-light h-100">
+                            <span class="badge bg-primary mb-2">Sprint 2 (Days 4 - 7)</span>
+                            <h6 class="fw-bold">Core Java Backend & DAOs</h6>
+                            <p class="small text-muted mb-0">OOP Domain Models, JDBC singleton connection, custom exception handling, business rules validation, and multithreaded notification worker.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3 border rounded-3 bg-light h-100">
+                            <span class="badge bg-primary mb-2">Sprint 3 (Days 8 - 10)</span>
+                            <h6 class="fw-bold">Python EDA & Analytics</h6>
+                            <p class="small text-muted mb-0">Data retrieval pipeline, NumPy IQR outlier handling, Matplotlib/Seaborn visualization generator (8 publication charts), Jupyter notebook.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-3 border rounded-3 bg-light h-100">
+                            <span class="badge bg-info text-dark mb-2">Sprint 4 (Days 11 - 13)</span>
+                            <h6 class="fw-bold">Web Application & Dashboard</h6>
+                            <p class="small text-muted mb-0">Flask web controllers, interactive Bootstrap 5 UI, vacancy browsing, eligibility-checked job applications, real-time analytics gallery.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-3 border rounded-3 bg-light h-100">
+                            <span class="badge bg-success mb-2">Sprint 5 (Days 14 - 15)</span>
+                            <h6 class="fw-bold">System QA, SCM & Deployment</h6>
+                            <p class="small text-muted mb-0">16-case test execution matrix verification, IEEE 830 SRS documentation, GitHub version control tagging, and final project packaging.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-users-gear me-2"></i>1.3 Agile Scrum Roles & User Stories</h5>
+                <ul class="list-group list-group-flush mb-0">
+                    <li class="list-group-item d-flex justify-content-between align-items-start px-0">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold"><i class="fa-solid fa-user-tie text-primary me-2"></i>Product Owner (Placement Officer):</div>
+                            "As a Placement Officer, I want real-time departmental placement rates and corporate hiring reports so that I can track campus placement targets (80% benchmark)."
+                        </div>
+                        <span class="badge bg-light text-muted border">High Priority</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start px-0">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold"><i class="fa-solid fa-user-graduate text-success me-2"></i>Student / Job Seeker:</div>
+                            "As a Student, I want to apply only for vacancies matching my CGPA and department so that I don't waste time on ineligible recruitment drives."
+                        </div>
+                        <span class="badge bg-light text-muted border">Core Functional</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start px-0">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold"><i class="fa-solid fa-building text-warning me-2"></i>Corporate Recruiter:</div>
+                            "As an Employer, I want duplicate applications strictly prevented and recruitment status tracked across interview rounds so that hiring pipelines stay clean."
+                        </div>
+                        <span class="badge bg-light text-muted border">Integrity Critical</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- UNIT 2: REQUIREMENTS ANALYSIS & SRS (IEEE 830) -->
+        <!-- ========================================== -->
+        <div class="card se-unit-card" id="unit2-section">
+            <div class="se-unit-header d-flex justify-content-between align-items-center">
+                <div>
+                    <span class="badge bg-warning text-dark me-2">UNIT 2</span>
+                    <h4 class="d-inline-block fw-bold mb-0">Software Requirements Engineering & IEEE 830 SRS</h4>
+                </div>
+                <span class="badge bg-light text-dark">IEEE Std 830-1998 Format</span>
+            </div>
+            <div class="card-body p-4">
+                <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-clipboard-list me-2"></i>2.1 Requirements Engineering Lifecycle</h5>
+                <p>The requirements engineering process was carried out across four formal phases: <strong>Elicitation</strong> (studying placement cell workflows), <strong>Analysis & Negotiation</strong> (defining CGPA cutoffs and unique constraints), <strong>Specification</strong> (IEEE 830 SRS), and <strong>Validation</strong> (reviewing against scenario 22 requirements).</p>
+
+                <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-list-check me-2"></i>2.2 Functional Requirements (FR) Specification</h5>
+                <div class="table-responsive mb-4">
+                    <table class="table table-bordered table-se align-middle">
+                        <thead>
+                            <tr>
+                                <th>Req ID</th>
+                                <th>Module</th>
+                                <th>Input Parameters</th>
+                                <th>Business Processing Logic</th>
+                                <th>Output / Exception</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>FR-01</strong></td>
+                                <td>Student Management</td>
+                                <td>Reg No, Name, Dept, CGPA, Skills, Email, Phone</td>
+                                <td>Regex validation for email/phone; range check for CGPA [0.00 - 10.00]; persist to DB.</td>
+                                <td>Registered Student Record / Input Validation Error</td>
+                            </tr>
+                            <tr>
+                                <td><strong>FR-02</strong></td>
+                                <td>Vacancy Publishing</td>
+                                <td>Company, Job Title, Min CGPA, Depts, Salary Range, Openings</td>
+                                <td>Verify foreign key company ID, check salary sanity (Max &ge; Min), persist OPEN vacancy.</td>
+                                <td>Active Vacancy Posting / Integrity Error</td>
+                            </tr>
+                            <tr class="table-info">
+                                <td><strong>FR-03</strong></td>
+                                <td>Smart Eligibility Engine</td>
+                                <td>Student ID, Vacancy ID</td>
+                                <td>Validate candidate CGPA &ge; Cutoff AND candidate department &in; Eligible Departments.</td>
+                                <td>Allowed to Apply / Throws <code>IneligibleCandidateException</code></td>
+                            </tr>
+                            <tr class="table-warning">
+                                <td><strong>FR-04</strong></td>
+                                <td>Duplicate Prevention</td>
+                                <td>Student ID, Vacancy ID</td>
+                                <td>Check compound key <code>UNIQUE(student_id, vacancy_id)</code> in both Service and Database.</td>
+                                <td>Application Approved / Throws <code>DuplicateApplicationException</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>FR-05</strong></td>
+                                <td>Recruitment Tracking</td>
+                                <td>Application ID, New Status, Interview Round, Remarks</td>
+                                <td>Validate status transition (APPLIED &rarr; SHORTLISTED &rarr; SELECTED / REJECTED) and update DB.</td>
+                                <td>Updated Application Pipeline Record</td>
+                            </tr>
+                            <tr>
+                                <td><strong>FR-06</strong></td>
+                                <td>Executive Reporting</td>
+                                <td>Audit Filter Criteria</td>
+                                <td>Java Stream API and Collections grouping to compute placed students and department ratios.</td>
+                                <td>Tabular Console & Web Management Reports</td>
+                            </tr>
+                            <tr>
+                                <td><strong>FR-07</strong></td>
+                                <td>Trend Analytics (EDA)</td>
+                                <td>Relational Placement Dataset</td>
+                                <td>Extract CSV, calculate IQR outlier thresholds, generate 8 publication-grade charts (300 DPI).</td>
+                                <td>8 High-Res PNG Visualizations + Jupyter Notebook</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-shield-halved me-2"></i>2.3 Non-Functional Requirements (NFR)</h5>
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <div class="p-3 border rounded-3 bg-light">
+                            <h6 class="fw-bold text-dark"><i class="fa-solid fa-gauge-high text-primary me-1"></i> Performance</h6>
+                            <p class="small text-muted mb-0">Sub-second query response (&lt;50ms) using indexed primary/foreign keys in SQLite.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="p-3 border rounded-3 bg-light">
+                            <h6 class="fw-bold text-dark"><i class="fa-solid fa-lock text-success me-1"></i> Data Security</h6>
+                            <p class="small text-muted mb-0">100% parameterized SQL prepared statements to eliminate SQL Injection attacks.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="p-3 border rounded-3 bg-light">
+                            <h6 class="fw-bold text-dark"><i class="fa-solid fa-database text-warning me-1"></i> Data Integrity</h6>
+                            <p class="small text-muted mb-0">Relational schema normalized to BCNF with strict foreign key cascading rules.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="p-3 border rounded-3 bg-light">
+                            <h6 class="fw-bold text-dark"><i class="fa-solid fa-laptop-code text-info me-1"></i> Usability & Portability</h6>
+                            <p class="small text-muted mb-0">Dual-channel access: Interactive Java CLI Menu + Responsive Web Portal UI.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- UNIT 3: SOFTWARE DESIGN & ARCHITECTURE (UML) -->
+        <!-- ========================================== -->
+        <div class="card se-unit-card" id="unit3-section">
+            <div class="se-unit-header d-flex justify-content-between align-items-center">
+                <div>
+                    <span class="badge bg-warning text-dark me-2">UNIT 3</span>
+                    <h4 class="d-inline-block fw-bold mb-0">Software Design, System Architecture & UML Modeling</h4>
+                </div>
+                <span class="badge bg-light text-dark">N-Tier Architecture & UML 2.5</span>
+            </div>
+            <div class="card-body p-4">
+                <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-sitemap me-2"></i>3.1 N-Tier Layered Architectural Pattern</h5>
+                <p>The system enforces strict separation of concerns through an enterprise layered design: Presentation (CLI/Web), Service (Business Rules), DAO (Data Access), Persistence (SQLite), and Analytics (Python EDA).</p>
+
+                <div class="mermaid-container mb-4">
+                    <pre class="mermaid">
+graph TD
+    subgraph Presentation_Layer ["Presentation & Interaction Layer"]
+        CLI["Java Interactive Console Menu (Main.java)"]
+        WEB["Flask Web Portal (app.py)"]
+    end
+
+    subgraph Service_Layer ["Business Logic & Service Layer"]
+        SVC["JobPortalService Interface"]
+        SVC_IMPL["JobPortalServiceImpl"]
+        RULES["Smart Eligibility Engine"]
+        NOTIFIER["Async Notification Dispatcher (Multithreading)"]
+        REPORT["ReportGenerator (Stream API & Collections)"]
+    end
+
+    subgraph DAO_Layer ["Data Access Object (DAO) Layer"]
+        S_DAO["StudentDAO"]
+        C_DAO["CompanyDAO"]
+        V_DAO["VacancyDAO"]
+        A_DAO["ApplicationDAO"]
+    end
+
+    subgraph Persistence_Layer ["Persistence & Storage Layer"]
+        DBCONN["Singleton DatabaseConnection (JDBC / SQLite3)"]
+        SQLITE[("job_portal.db (Relational BCNF Tables)")]
+    end
+
+    subgraph Analytics_Layer ["Python Data Science Layer"]
+        PREPROC["NumPy Wrangling & IQR Outliers"]
+        VIZ["Matplotlib / Seaborn 8 Charts Generator"]
+    end
+
+    CLI --> SVC
+    WEB --> SVC
+    SVC --> SVC_IMPL
+    SVC_IMPL --> RULES
+    SVC_IMPL --> NOTIFIER
+    SVC_IMPL --> S_DAO
+    SVC_IMPL --> C_DAO
+    SVC_IMPL --> V_DAO
+    SVC_IMPL --> A_DAO
+    SVC_IMPL --> REPORT
+
+    S_DAO --> DBCONN
+    C_DAO --> DBCONN
+    V_DAO --> DBCONN
+    A_DAO --> DBCONN
+    DBCONN --> SQLITE
+
+    SQLITE --> PREPROC
+    PREPROC --> VIZ
+                    </pre>
+                </div>
+
+                <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-user-gear me-2"></i>3.2 UML Use Case Diagram</h5>
+                <p>Illustrates the functional boundaries and relationships (<code>&lt;&lt;includes&gt;&gt;</code> and <code>&lt;&lt;triggers&gt;&gt;</code>) between all 4 system actors:</p>
+
+                <div class="mermaid-container mb-4">
+                    <pre class="mermaid">
+flowchart LR
+    Student(["Student / Candidate"])
+    Recruiter(["Corporate Recruiter"])
+    Admin(["Placement Officer / Admin"])
+    Notifier(["System Async Notifier"])
+
+    subgraph JobPortalSystem ["Online Job Portal Boundary"]
+        UC1["Register / Update Student Profile"]
+        UC2["Browse Open Vacancies"]
+        UC3["Apply for Vacancy"]
+        UC4["Validate Minimum CGPA Cutoff"]
+        UC5["Validate Department Eligibility"]
+        UC6["Prevent Duplicate Applications"]
+        UC7["View Application History"]
+        UC8["Publish New Job Vacancy"]
+        UC9["Update Application Status & Round"]
+        UC10["Dispatch Email / SMS Notification"]
+        UC11["Generate Placement Reports"]
+        UC12["Run Python Trend Analytics"]
+    end
+
+    Student --> UC1
+    Student --> UC2
+    Student --> UC3
+    Student --> UC7
+
+    UC3 -.->|"<<includes>>"| UC4
+    UC3 -.->|"<<includes>>"| UC5
+    UC3 -.->|"<<includes>>"| UC6
+    UC3 -.->|"<<triggers>>"| UC10
+
+    Notifier --- UC10
+
+    Recruiter --> UC8
+    Recruiter --> UC9
+
+    Admin --> UC11
+    Admin --> UC12
+                    </pre>
+                </div>
+
+                <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-network-wired me-2"></i>3.3 UML Class Diagram</h5>
+                <p>Documents static domain object-oriented encapsulation, attributes, operations, and relationships:</p>
+
+                <div class="mermaid-container mb-4">
+                    <pre class="mermaid">
+classDiagram
+    direction TB
+
+    class Student {
+        -String studentId
+        -String name
+        -String department
+        -double cgpa
+        -String skills
+        -String email
+        -String phone
+        +getCgpa() double
+        +getDepartment() String
+    }
+
+    class Vacancy {
+        -int vacancyId
+        -int companyId
+        -String jobTitle
+        -double minCgpa
+        -String eligibleDepartments
+        -int salaryMin
+        -int salaryMax
+        -String status
+        +getMinCgpa() double
+        +getEligibleDepartments() String
+    }
+
+    class Application {
+        -int applicationId
+        -String studentId
+        -int vacancyId
+        -ApplicationStatus status
+        -int interviewRound
+        -String remarks
+        +getStatus() ApplicationStatus
+    }
+
+    class JobPortalService {
+        <<interface>>
+        +applyForJob(studentId, vacancyId) int
+        +updateStatus(appId, status, round) boolean
+        +getEligibleVacancies(studentId) List
+    }
+
+    class IneligibleCandidateException {
+        +IneligibleCandidateException(msg)
+    }
+
+    class DuplicateApplicationException {
+        +DuplicateApplicationException(msg)
+    }
+
+    Student "1" --> "0..*" Application : submits
+    Vacancy "1" --> "0..*" Application : receives
+    JobPortalService ..> IneligibleCandidateException : throws
+    JobPortalService ..> DuplicateApplicationException : throws
+                    </pre>
+                </div>
+
+                <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-arrows-split-up-and-left me-2"></i>3.4 UML Sequence Diagram (Application Submission)</h5>
+                <div class="mermaid-container">
+                    <pre class="mermaid">
+sequenceDiagram
+    autonumber
+    actor Student as Student (Candidate)
+    participant UI as Presentation Layer (Web / CLI)
+    participant SVC as JobPortalService
+    participant VDAO as VacancyDAO
+    participant ADAO as ApplicationDAO
+    participant DB as SQLite Database
+    participant Worker as Async Notifier Thread
+
+    Student->>UI: Submit applyForJob(studentId, vacancyId)
+    UI->>SVC: applyForJob(studentId, vacancyId)
+    SVC->>VDAO: getVacancyById(vacancyId)
+    VDAO-->>SVC: Vacancy details (min_cgpa, eligible_depts)
+    
+    alt Ineligible CGPA or Department
+        SVC-->>UI: throw IneligibleCandidateException
+        UI-->>Student: Display ineligibility error message
+    else Duplicate Application Detected
+        SVC->>ADAO: hasApplied(studentId, vacancyId)
+        ADAO-->>SVC: true (Record already exists)
+        SVC-->>UI: throw DuplicateApplicationException
+        UI-->>Student: Display duplicate rejection message
+    else Eligible & Unique Candidate
+        SVC->>ADAO: createApplication(studentId, vacancyId, 'APPLIED')
+        ADAO->>DB: INSERT INTO applications VALUES (...)
+        DB-->>ADAO: Success (Generated App ID #63)
+        ADAO-->>SVC: Application ID #63
+        
+        par Async Notification
+            SVC->>Worker: dispatchNotification(studentId, "Application Received")
+            Worker-->>Student: [Async Thread] Email / SMS delivered
+        and Service Response
+            SVC-->>UI: Application successful (#63)
+            UI-->>Student: Display success confirmation
+        end
+    end
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- UNIT 4: SOFTWARE TESTING & QUALITY ASSURANCE -->
+        <!-- ========================================== -->
+        <div class="card se-unit-card" id="unit4-section">
+            <div class="se-unit-header d-flex justify-content-between align-items-center">
+                <div>
+                    <span class="badge bg-warning text-dark me-2">UNIT 4</span>
+                    <h4 class="d-inline-block fw-bold mb-0">Software Testing Strategies, Techniques & Test Cases</h4>
+                </div>
+                <span class="badge bg-light text-dark">Black-Box, White-Box & 16-Case Matrix</span>
+            </div>
+            <div class="card-body p-4">
+                <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-vial me-2"></i>4.1 Testing Levels & Strategies</h5>
+                <p>Testing was performed hierarchically across all four software engineering levels: <strong>Unit Testing</strong> (DAOs, regular expression validators, model getters/setters), <strong>Integration Testing</strong> (Service layer coordinating with SQLite JDBC transactions), <strong>System Testing</strong> (End-to-end recruitment drives and reporting), and <strong>Acceptance Testing</strong> (Verification against Scenario 22 deliverables).</p>
+
+                <div class="row g-4 mb-4">
+                    <div class="col-lg-6">
+                        <div class="p-3 border rounded-3 bg-light h-100">
+                            <h6 class="fw-bold text-dark"><i class="fa-solid fa-cube text-primary me-2"></i>Black-Box Testing (Functional)</h6>
+                            <ul class="small mb-0">
+                                <li><strong>Equivalence Partitioning (EP):</strong>
+                                    <ul>
+                                        <li>CGPA valid partition: <code>[0.00, 10.00]</code>. Invalid partitions: <code>&lt; 0.00</code>, <code>&gt; 10.00</code>.</li>
+                                        <li>Phone number partition: <code>10 numeric digits</code>. Invalid: alphabetic or length &ne; 10.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Boundary Value Analysis (BVA):</strong>
+                                    <ul>
+                                        <li>CGPA tested at boundaries: <code>-0.01</code> (Reject), <code>0.00</code> (Accept), <code>6.00</code> (Cutoff boundary), <code>10.00</code> (Accept), <code>10.01</code> (Reject).</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="p-3 border rounded-3 bg-light h-100">
+                            <h6 class="fw-bold text-dark"><i class="fa-solid fa-code text-success me-2"></i>White-Box Testing (Structural)</h6>
+                            <p class="small mb-2"><strong>Basis Path Testing & Cyclomatic Complexity for <code>isEligible()</code>:</strong></p>
+                            <div class="formula-box mb-2 small">
+                                <strong>Formula:</strong> V(G) = P + 1 (where P = number of predicate decisions)<br>
+                                Predicates: (1) CGPA &ge; Cutoff, (2) Dept == 'ALL', (3) Dept in AllowedList<br>
+                                <strong>V(G) = 3 + 1 = 4 Independent Execution Paths</strong>
+                            </div>
+                            <ol class="small mb-0">
+                                <li>Path 1: CGPA &lt; Cutoff &rarr; Throws <code>IneligibleCandidateException</code>.</li>
+                                <li>Path 2: CGPA &ge; Cutoff &amp; Dept == 'ALL' &rarr; Returns <code>true</code>.</li>
+                                <li>Path 3: CGPA &ge; Cutoff &amp; Dept &in; List &rarr; Returns <code>true</code>.</li>
+                                <li>Path 4: CGPA &ge; Cutoff &amp; Dept &notin; List &rarr; Throws <code>IneligibleCandidateException</code>.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-table-cells me-2"></i>4.2 Comprehensive 16-Case Test Execution Matrix</h5>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-se table-hover align-middle">
+                        <thead>
+                            <tr>
+                                <th>Test ID</th>
+                                <th>Module</th>
+                                <th>Technique</th>
+                                <th>Test Description & Input Data</th>
+                                <th>Expected vs Actual Result</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>TC-01</strong></td>
+                                <td>Student</td>
+                                <td>BVA / Unit</td>
+                                <td>Valid registration (ID: 732925ITR099, CGPA: 8.25)</td>
+                                <td>Persisted successfully to database.</td>
+                                <td><span class="badge bg-success">PASS</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>TC-02</strong></td>
+                                <td>Student</td>
+                                <td>Black-Box (EP)</td>
+                                <td>Invalid high CGPA: <code>11.50</code></td>
+                                <td>Input validation rejects with error message.</td>
+                                <td><span class="badge bg-success">PASS</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>TC-03</strong></td>
+                                <td>Student</td>
+                                <td>Black-Box (EP)</td>
+                                <td>Malformed email: <code>student@@xyz</code></td>
+                                <td>Regex rejection with format alert.</td>
+                                <td><span class="badge bg-success">PASS</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>TC-04</strong></td>
+                                <td>Vacancy</td>
+                                <td>DAO / Unit</td>
+                                <td>Query active vacancies with status = 'OPEN'</td>
+                                <td>Returns exactly 12 active job openings.</td>
+                                <td><span class="badge bg-success">PASS</span></td>
+                            </tr>
+                            <tr class="table-info">
+                                <td><strong>TC-05</strong></td>
+                                <td>Eligibility</td>
+                                <td>White-Box (Path 1)</td>
+                                <td>Candidate CGPA: 6.80 &lt; Cutoff: 7.00 (TCS Digital)</td>
+                                <td>Throws <code>IneligibleCandidateException</code>.</td>
+                                <td><span class="badge bg-success">PASS</span></td>
+                            </tr>
+                            <tr class="table-info">
+                                <td><strong>TC-06</strong></td>
+                                <td>Eligibility</td>
+                                <td>White-Box (Path 4)</td>
+                                <td>Candidate Dept: 'IT' not in allowed ('ECE,EEE')</td>
+                                <td>Throws <code>IneligibleCandidateException</code>.</td>
+                                <td><span class="badge bg-success">PASS</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>TC-07</strong></td>
+                                <td>Application</td>
+                                <td>Integration</td>
+                                <td>Valid job application submission (Student: 999, Vacancy: 1)</td>
+                                <td>Application persisted with status APPLIED (#63).</td>
+                                <td><span class="badge bg-success">PASS</span></td>
+                            </tr>
+                            <tr class="table-warning">
+                                <td><strong>TC-08</strong></td>
+                                <td>Integrity</td>
+                                <td>Integration / DBMS</td>
+                                <td>Submit duplicate application for same student & vacancy</td>
+                                <td>Throws <code>DuplicateApplicationException</code>, DB prevents.</td>
+                                <td><span class="badge bg-success">PASS</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>TC-09</strong></td>
+                                <td>Recruiter</td>
+                                <td>Integration</td>
+                                <td>Update status: SHORTLISTED (Round 2)</td>
+                                <td>Record updated to SHORTLISTED in database.</td>
+                                <td><span class="badge bg-success">PASS</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>TC-10</strong></td>
+                                <td>Recruiter</td>
+                                <td>Integration</td>
+                                <td>Update status: SELECTED (Offer Extended, Round 3)</td>
+                                <td>Record updated to SELECTED in database.</td>
+                                <td><span class="badge bg-success">PASS</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>TC-11</strong></td>
+                                <td>Threads</td>
+                                <td>Unit / Concurrency</td>
+                                <td>Verify non-blocking async notification dispatch</td>
+                                <td>Worker thread dispatches email without blocking CLI.</td>
+                                <td><span class="badge bg-success">PASS</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>TC-12</strong></td>
+                                <td>Reports</td>
+                                <td>Stream API</td>
+                                <td>Application status distribution summary</td>
+                                <td>Computes accurate status breakdown counts.</td>
+                                <td><span class="badge bg-success">PASS</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>TC-13</strong></td>
+                                <td>Reports</td>
+                                <td>Stream API</td>
+                                <td>Department-wise placement trend report</td>
+                                <td>Computes placed student count and % per department.</td>
+                                <td><span class="badge bg-success">PASS</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>TC-14</strong></td>
+                                <td>Python</td>
+                                <td>Integration</td>
+                                <td>Extract database records into CSV</td>
+                                <td>Generates <code>raw_placement_data.csv</code> (62 records).</td>
+                                <td><span class="badge bg-success">PASS</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>TC-15</strong></td>
+                                <td>Python</td>
+                                <td>NumPy / Unit</td>
+                                <td>Data cleaning and IQR outlier computation</td>
+                                <td>Flags 7 high-compensation package outliers correctly.</td>
+                                <td><span class="badge bg-success">PASS</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>TC-16</strong></td>
+                                <td>Python</td>
+                                <td>System / EDA</td>
+                                <td>Generate 8 high-resolution analytical charts</td>
+                                <td>8 PNG charts generated (300 DPI) in output/visualizations.</td>
+                                <td><span class="badge bg-success">PASS</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="p-3 bg-success-subtle border border-success rounded-3 mt-3 d-flex justify-content-between align-items-center">
+                    <div>
+                        <strong class="text-success"><i class="fa-solid fa-circle-check me-2"></i>QA Sign-Off Verification:</strong>
+                        <span>16 of 16 Test Cases Passed (100% Pass Rate). Zero critical defect density.</span>
+                    </div>
+                    <span class="badge bg-success px-3 py-2">Defect Density: 0.0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- UNIT 5: PROJECT MANAGEMENT, ESTIMATION & MAINTENANCE -->
+        <!-- ========================================== -->
+        <div class="card se-unit-card" id="unit5-section">
+            <div class="se-unit-header d-flex justify-content-between align-items-center">
+                <div>
+                    <span class="badge bg-warning text-dark me-2">UNIT 5</span>
+                    <h4 class="d-inline-block fw-bold mb-0">Project Management, Estimation, Risk & Maintenance</h4>
+                </div>
+                <span class="badge bg-light text-dark">COCOMO, FPA, RMMM & SCM</span>
+            </div>
+            <div class="card-body p-4">
+                <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-calculator me-2"></i>5.1 Software Cost & Effort Estimation (Basic COCOMO Model)</h5>
+                <p>The <strong>Constructive Cost Model (COCOMO)</strong> was applied to estimate software development effort, schedule duration, and recommended staffing. The project falls under the <strong>Organic Mode</strong> (small, well-understood domain with small team).</p>
+
+                <div class="row g-4 mb-4">
+                    <div class="col-lg-6">
+                        <div class="p-3 border rounded-3 bg-light h-100">
+                            <h6 class="fw-bold text-dark">COCOMO Mathematical Equations (Organic)</h6>
+                            <div class="formula-box mb-3 small">
+                                <strong>Effort:</strong> E = a<sub>b</sub> &times; (KLOC)<sup>b<sub>b</sub></sup> [person-months]<br>
+                                <strong>Development Time:</strong> D = c<sub>b</sub> &times; (E)<sup>d<sub>b</sub></sup> [months]<br>
+                                <strong>Staff Size:</strong> SS = E / D [persons]<br>
+                                <em>Constants for Organic Mode:</em><br>
+                                a<sub>b</sub> = 2.4, b<sub>b</sub> = 1.05, c<sub>b</sub> = 2.5, d<sub>b</sub> = 0.38
+                            </div>
+                            <h6 class="fw-bold text-dark">Codebase Metric Inputs</h6>
+                            <ul class="small text-muted mb-0">
+                                <li>Java Backend (Model, DAO, Service, Main): <strong>1,120 LOC</strong></li>
+                                <li>Python Analytics & Web Dashboard: <strong>510 LOC</strong></li>
+                                <li>SQL Schema, Seed Data & Queries: <strong>190 LOC</strong></li>
+                                <li><strong>Total Delivered Source Code (KLOC): 1.82 KLOC</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="p-3 border rounded-3 bg-light h-100">
+                            <h6 class="fw-bold text-dark">Calculated Project Estimates</h6>
+                            <table class="table table-sm table-borderless small mb-0">
+                                <tbody>
+                                    <tr>
+                                        <td class="fw-semibold">Estimated Effort (E):</td>
+                                        <td class="text-end font-monospace text-primary fw-bold">2.4 &times; (1.82)<sup>1.05</sup> = <strong>4.50 Person-Months</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold">Development Duration (D):</td>
+                                        <td class="text-end font-monospace text-primary fw-bold">2.5 &times; (4.50)<sup>0.38</sup> = <strong>4.43 Months</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold">Average Staff Required (SS):</td>
+                                        <td class="text-end font-monospace text-primary fw-bold">4.50 / 4.43 = <strong>1.02 &approx; 1 Engineer</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold">Project Productivity:</td>
+                                        <td class="text-end font-monospace text-success fw-bold">1,820 LOC / 4.50 PM = <strong>404 LOC/PM</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="mt-3 p-2 bg-white rounded border small text-muted">
+                                <i class="fa-solid fa-circle-info text-info me-1"></i> Matches the single-student project allocation schedule spanning academic semester milestones.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-triangle-exclamation me-2"></i>5.2 Risk Management (RMMM Plan)</h5>
+                <p>The <strong>Risk Mitigation, Monitoring, and Management (RMMM)</strong> plan identifies potential project risks, estimates risk exposure, and establishes formal mitigation procedures.</p>
+
+                <div class="table-responsive mb-4">
+                    <table class="table table-bordered table-se align-middle">
+                        <thead>
+                            <tr>
+                                <th>Risk Category</th>
+                                <th>Identified Risk Description</th>
+                                <th>Prob (P)</th>
+                                <th>Impact (I)</th>
+                                <th>Mitigation Strategy</th>
+                                <th>Management & Monitoring</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Data Integrity</strong></td>
+                                <td>Duplicate applications submitted for same vacancy.</td>
+                                <td>High (0.8)</td>
+                                <td>High</td>
+                                <td>Dual-layer protection: DB compound <code>UNIQUE</code> constraint + Service layer pre-check.</td>
+                                <td>Caught via <code>DuplicateApplicationException</code>; flash alert shown to user.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Compliance</strong></td>
+                                <td>Students applying without meeting CGPA cutoffs.</td>
+                                <td>High (0.7)</td>
+                                <td>Medium</td>
+                                <td>Pre-submission validation in service layer comparing student CGPA against vacancy cutoff.</td>
+                                <td>Throws <code>IneligibleCandidateException</code> with explicit reasoning.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Security</strong></td>
+                                <td>SQL Injection via interactive user inputs.</td>
+                                <td>Medium (0.4)</td>
+                                <td>Critical</td>
+                                <td>100% Parameterized queries with <code>PreparedStatement</code> and SQLite parameters.</td>
+                                <td>Static code audit and input regex validation.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Performance</strong></td>
+                                <td>CLI freeze during email notification dispatch.</td>
+                                <td>Medium (0.5)</td>
+                                <td>Low</td>
+                                <td>Asynchronous worker threads decoupled from the main interactive loop.</td>
+                                <td>Worker thread logs execution without delaying transaction completion.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-code-branch me-2"></i>5.3 Software Configuration Management (SCM) & Maintenance</h5>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="p-3 border rounded-3 bg-light h-100">
+                            <h6 class="fw-bold text-dark"><i class="fa-brands fa-git-alt text-danger me-2"></i>SCM & Git Version Control</h6>
+                            <ul class="small mb-0">
+                                <li><strong>Repository:</strong> Hosted on GitHub with clean remote branch tracking (<code>origin/main</code>).</li>
+                                <li><strong>Commit Hygiene:</strong> Conventional commit tags used (<code>feat:</code>, <code>docs:</code>, <code>chore:</code>).</li>
+                                <li><strong>Asset Exclusion:</strong> <code>.gitignore</code> properly protects bytecode (<code>bin/</code>), Python environments (<code>.venv/</code>), and cache directories.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-3 border rounded-3 bg-light h-100">
+                            <h6 class="fw-bold text-dark"><i class="fa-solid fa-screwdriver-wrench text-warning me-2"></i>Four Types of Software Maintenance</h6>
+                            <ul class="small mb-0">
+                                <li><strong>Corrective:</strong> Bug fixes applied to SQLite transaction rollbacks (Zero remaining defects).</li>
+                                <li><strong>Adaptive:</strong> Upgraded runtime compatibility for Java 17 LTS and Python 3.12.</li>
+                                <li><strong>Perfective:</strong> Added responsive web interface (Flask) and 8 publication charts.</li>
+                                <li><strong>Preventive:</strong> Refactored DAO layer with Singleton DB connection to prevent leaks.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- TAB: UNIT 1 ONLY -->
+    <div class="tab-pane fade" id="tab-unit1" role="tabpanel">
+        <div class="alert alert-info">
+            <i class="fa-solid fa-arrow-down me-1"></i> Viewing <strong>Unit 1: Software Process & Agile Development</strong>. Scroll above or toggle tabs for specific sections.
+        </div>
+        <!-- Content mirrored from Unit 1 section -->
+    </div>
+
+    <!-- TAB: UNIT 2 ONLY -->
+    <div class="tab-pane fade" id="tab-unit2" role="tabpanel">
+        <div class="alert alert-info">
+            <i class="fa-solid fa-arrow-down me-1"></i> Viewing <strong>Unit 2: Software Requirements Engineering & IEEE 830 SRS</strong>.
+        </div>
+    </div>
+
+    <!-- TAB: UNIT 3 ONLY -->
+    <div class="tab-pane fade" id="tab-unit3" role="tabpanel">
+        <div class="alert alert-info">
+            <i class="fa-solid fa-arrow-down me-1"></i> Viewing <strong>Unit 3: Software Design, System Architecture & UML Modeling</strong>.
+        </div>
+    </div>
+
+    <!-- TAB: UNIT 4 ONLY -->
+    <div class="tab-pane fade" id="tab-unit4" role="tabpanel">
+        <div class="alert alert-info">
+            <i class="fa-solid fa-arrow-down me-1"></i> Viewing <strong>Unit 4: Software Testing Strategies, Techniques & Test Cases</strong>.
+        </div>
+    </div>
+
+    <!-- TAB: UNIT 5 ONLY -->
+    <div class="tab-pane fade" id="tab-unit5" role="tabpanel">
+        <div class="alert alert-info">
+            <i class="fa-solid fa-arrow-down me-1"></i> Viewing <strong>Unit 5: Project Management, COCOMO Estimation, Risk & Maintenance</strong>.
+        </div>
+    </div>
+
+</div>
+
+<!-- Bottom Navigation Actions -->
+<div class="d-flex justify-content-between align-items-center mt-4 pt-3 border-top">
+    <a href="{{ url_for('analytics') }}" class="btn btn-outline-secondary">
+        <i class="fa-solid fa-arrow-left me-1"></i> Back to Trend Analytics
+    </a>
+    <a href="{{ url_for('vacancies') }}" class="btn btn-primary">
+        <i class="fa-solid fa-briefcase me-1"></i> Explore Job Vacancies
+    </a>
+</div>
+
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    // Tab switching support to scroll smoothly to section
+    document.querySelectorAll('#seTabs button').forEach(button => {
+        button.addEventListener('shown.bs.tab', function (event) {
+            const targetId = event.target.getAttribute('data-bs-target');
+            if (targetId === '#tab-unit1') {
+                document.getElementById('all-tab').click();
+                setTimeout(() => document.getElementById('unit1-section').scrollIntoView({ behavior: 'smooth' }), 50);
+            } else if (targetId === '#tab-unit2') {
+                document.getElementById('all-tab').click();
+                setTimeout(() => document.getElementById('unit2-section').scrollIntoView({ behavior: 'smooth' }), 50);
+            } else if (targetId === '#tab-unit3') {
+                document.getElementById('all-tab').click();
+                setTimeout(() => document.getElementById('unit3-section').scrollIntoView({ behavior: 'smooth' }), 50);
+            } else if (targetId === '#tab-unit4') {
+                document.getElementById('all-tab').click();
+                setTimeout(() => document.getElementById('unit4-section').scrollIntoView({ behavior: 'smooth' }), 50);
+            } else if (targetId === '#tab-unit5') {
+                document.getElementById('all-tab').click();
+                setTimeout(() => document.getElementById('unit5-section').scrollIntoView({ behavior: 'smooth' }), 50);
+            }
+        });
+    });
+</script>
+{% endblock %}

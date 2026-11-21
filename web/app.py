@@ -294,6 +294,11 @@ def analytics():
     return render_template("analytics.html", charts=charts)
 
 
+@app.route("/software-engineering")
+def software_engineering():
+    return render_template("software_engineering.html")
+
+
 if __name__ == "__main__":
     print("=" * 60)
     print("Online Job Portal Web Dashboard Running...")

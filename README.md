@@ -182,7 +182,7 @@ java -cp "bin;lib/*" com.jobportal.Main --auto-demo
 ```bash
 python web/app.py
 ```
-*Access in browser at `http://127.0.0.1:5000` to interact with job vacancies, students, applications, and visual analytics.*
+*Access in browser at `http://127.0.0.1:5000` to interact with job vacancies, students, applications, visual analytics, and the interactive Software Engineering (25ITT33) 5-Units Hub (`/software-engineering`).*
 
 #### 6. Run Python Data Science Pipeline & Visualizations
 ```bash
