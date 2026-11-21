@@ -12,7 +12,7 @@
 
 ## 📌 Integrated Curriculum Courses
 This project integrates core concepts across four fundamental engineering subjects:
-1. **25ITT33 - Software Engineering**: Requirements Engineering (SRS IEEE 830), Architectural & Component Design (UML Use Case, Class, Sequence Diagrams), and Quality Assurance (Unit, Integration, White-Box & Black-Box Testing).
+1. **25ITT33 - Software Engineering**: Software Process Models (Classical Waterfall Model), Requirements Engineering (SRS IEEE 830), Architectural & Component Design (UML Use Case, Class, Sequence Diagrams), Quality Assurance (Unit, Integration, White-Box & Black-Box Testing), and Software Project Management (Basic COCOMO Effort Estimation, Gantt Scheduling, RMMM Risk Management & SCM).
 2. **25ITT32 - Java Programming**: Object-Oriented Programming (OOP), Custom Exceptions, Generics, Collections Framework, Multithreading (Async Notifier), Stream API, and Database Connectivity (JDBC).
 3. **25ITT31 - Database Management Systems (DBMS)**: Relational Data Modeling, E-R Diagrams, DDL/DML, Constraints, Analytical SQL Joins & Subqueries, BCNF Normalization, and Query Optimization.
 4. **25ITC31 - Foundations of Data Science**: Database Retrieval, Data Wrangling (Pandas/NumPy), Data Cleaning & Imputation, IQR Outlier Detection, and Exploratory Data Analysis (EDA) with Matplotlib & Seaborn.
@@ -230,10 +230,11 @@ The system generates 8 publication-grade analytical charts (300 DPI) located in 
 
 ## 📑 Assessment Deliverables Checklist
 
-- [x] **SRS Document**: [docs/SRS.md](file:///e:/Project1/docs/SRS.md)
-- [x] **Design Diagrams (UML Use Case, Class, Architecture, Sequence)**: [docs/DESIGN_DIAGRAMS.md](file:///e:/Project1/docs/DESIGN_DIAGRAMS.md)
+- [x] **Waterfall Lifecycle & Project Management (Units 1 & 5)**: [docs/WATERFALL_AND_PROJECT_MANAGEMENT.md](file:///e:/Project1/docs/WATERFALL_AND_PROJECT_MANAGEMENT.md)
+- [x] **SRS Document (Unit 2)**: [docs/SRS.md](file:///e:/Project1/docs/SRS.md)
+- [x] **Design Diagrams (Unit 3 - UML Use Case, Class, Architecture, Sequence)**: [docs/DESIGN_DIAGRAMS.md](file:///e:/Project1/docs/DESIGN_DIAGRAMS.md)
 - [x] **ER Diagram, Relational Model & BCNF Normalization**: [docs/ER_RELATIONAL_MODEL.md](file:///e:/Project1/docs/ER_RELATIONAL_MODEL.md)
-- [x] **Testing Document (16 Comprehensive Test Cases)**: [docs/TESTING_DOCUMENT.md](file:///e:/Project1/docs/TESTING_DOCUMENT.md)
+- [x] **Testing Document (Unit 4 - 16 Comprehensive Test Cases)**: [docs/TESTING_DOCUMENT.md](file:///e:/Project1/docs/TESTING_DOCUMENT.md)
 - [x] **Java Source Code**: [src/com/jobportal/](file:///e:/Project1/src/com/jobportal/)
 - [x] **SQL Schema & Seed Scripts**: [database/schema.sql](file:///e:/Project1/database/schema.sql), [database/seed_data.sql](file:///e:/Project1/database/seed_data.sql)
 - [x] **Python Data Retrieval & Preprocessing**: [python/db_retrieval.py](file:///e:/Project1/python/db_retrieval.py), [python/data_preprocessing.py](file:///e:/Project1/python/data_preprocessing.py)
